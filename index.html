@@ -11,7 +11,7 @@
       content="Texas Movement International LLC is an independent venture studio building brands, media, digital platforms, and culture-driven businesses."
     />
 
-    <meta name="theme-color" content="#111111" />
+    <meta name="theme-color" content="#0a0a0a" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Texas Movement International" />
@@ -23,63 +23,524 @@
     <meta property="og:site_name" content="Texas Movement International" />
 
     <link rel="canonical" href="https://texasmovement.com/" />
-    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      :root {
+        --bg-primary: #0a0a0a;
+        --bg-secondary: #121212;
+        --bg-tertiary: #161616;
+        --border-color: #262626;
+        --border-hover: #404040;
+        --text-primary: #f5f5f5;
+        --text-secondary: #a3a3a3;
+        --text-muted: #737373;
+        --accent: #ffffff;
+        
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        
+        --container-max: 1200px;
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 4rem;
+        --space-2xl: 8rem;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Typography */
+      h1, h2, h3, h4 {
+        line-height: 1.15;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+      }
+
+      h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+      h2 { font-size: clamp(2rem, 4vw, 3rem); }
+      h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+      p {
+        color: var(--text-secondary);
+        font-size: 1.0625rem;
+        max-width: 65ch;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        margin-bottom: var(--space-md);
+      }
+
+      /* Layout */
+      .container {
+        width: 100%;
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
+
+      .section {
+        padding: var(--space-2xl) 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .section-dark {
+        background-color: var(--bg-secondary);
+      }
+
+      .section-intro {
+        margin-bottom: var(--space-xl);
+        max-width: 800px;
+      }
+
+      .section-intro h2 {
+        margin-bottom: var(--space-md);
+      }
+
+      /* Skip Link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--accent);
+        color: var(--bg-primary);
+        padding: 8px 16px;
+        z-index: 100;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .site-header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        color: var(--text-primary);
+      }
+
+      .primary-navigation {
+        display: flex;
+        gap: var(--space-lg);
+      }
+
+      .primary-navigation a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      .primary-navigation a:hover {
+        color: var(--text-primary);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: var(--space-xs);
+      }
+
+      /* Hero */
+      .hero {
+        padding: var(--space-2xl) 0;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero .container {
+        max-width: 900px;
+      }
+
+      .hero h1 {
+        margin-bottom: var(--space-lg);
+      }
+
+      .hero-copy {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        margin-bottom: var(--space-xl);
+        max-width: 70ch;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: var(--space-md);
+        flex-wrap: wrap;
+      }
+
+      /* Buttons */
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.875rem 1.75rem;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        border-radius: 2px;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .button-primary {
+        background: var(--text-primary);
+        color: var(--bg-primary);
+      }
+
+      .button-primary:hover {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      .button-secondary {
+        background: transparent;
+        border-color: var(--border-color);
+        color: var(--text-primary);
+      }
+
+      .button-secondary:hover {
+        border-color: var(--text-secondary);
+        background: var(--bg-secondary);
+      }
+
+      /* Grids */
+      .ecosystem-grid, .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-lg);
+      }
+
+      .ecosystem-card, .work-card {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: var(--space-lg);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .section-dark .ecosystem-card, .section-dark .work-card {
+         background: var(--bg-primary);
+      }
+
+      .ecosystem-card:hover, .work-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+      }
+
+      .ecosystem-card span {
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-bottom: var(--space-md);
+      }
+
+      .ecosystem-card h3, .work-card h3 {
+        margin-bottom: var(--space-sm);
+        color: var(--text-primary);
+      }
+
+      /* Ventures */
+      .venture {
+        padding: var(--space-xl) 0;
+        border-bottom: 1px solid var(--border-color);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--space-xl);
+        align-items: start;
+      }
+
+      .venture:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .venture-number {
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        padding-top: 0.25rem;
+      }
+
+      .venture h3 {
+        font-size: 1.75rem;
+        margin-bottom: var(--space-md);
+      }
+
+      .venture p {
+        margin-bottom: var(--space-lg);
+      }
+
+      .venture a {
+        font-weight: 500;
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 2px;
+        display: inline-block;
+      }
+
+      .venture a:hover {
+        border-bottom-color: var(--text-primary);
+      }
+
+      /* Founder */
+      .founder .section-intro {
+        max-width: 800px;
+      }
+
+      /* Contact */
+      .contact-section .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+        align-items: start;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .contact-email, .contact-phone {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: var(--space-xs);
+        width: fit-content;
+      }
+
+      .contact-email:hover, .contact-phone:hover {
+        border-bottom-color: var(--text-primary);
+      }
+
+      .contact-note {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin-top: var(--space-md);
+      }
+
+      /* Footer */
+      .site-footer {
+        padding: var(--space-xl) 0;
+        border-top: 1px solid var(--border-color);
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      .site-footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+      }
+
+      .site-footer div {
+        display: flex;
+        gap: var(--space-lg);
+      }
+
+      .site-footer a:hover {
+        color: var(--text-primary);
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .fade-in.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .venture {
+          grid-template-columns: 1fr;
+          gap: var(--space-md);
+        }
+        
+        .contact-section .container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .primary-navigation {
+          position: fixed;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: var(--bg-primary);
+          border-bottom: 1px solid var(--border-color);
+          flex-direction: column;
+          padding: var(--space-lg);
+          gap: var(--space-md);
+          transform: translateY(-100%);
+          opacity: 0;
+          pointer-events: none;
+          transition: all 0.3s ease;
+          z-index: 40;
+        }
+
+        .primary-navigation.is-open {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .primary-navigation a {
+          font-size: 1.125rem;
+          padding: var(--space-sm) 0;
+          border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero {
+          min-height: auto;
+          padding: var(--space-xl) 0;
+        }
+        
+        .section {
+          padding: var(--space-xl) 0;
+        }
+        
+        .site-footer .container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Texas Movement International home">
-        TEXAS MOVEMENT
-      </a>
+      <div class="container">
+        <a class="brand" href="#top" aria-label="Texas Movement International home">
+          TEXAS MOVEMENT
+        </a>
 
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="primary-navigation"
-      >
-        Menu
-      </button>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          Menu
+        </button>
 
-      <nav
-        id="primary-navigation"
-        class="primary-navigation"
-        aria-label="Primary navigation"
-      >
-        <a href="#ecosystem">Ecosystem</a>
-        <a href="#ventures">Ventures</a>
-        <a href="#work">Work</a>
-        <a href="#founder">Founder</a>
-        <a href="#partner">Partner</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav
+          id="primary-navigation"
+          class="primary-navigation"
+          aria-label="Primary navigation"
+        >
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#ventures">Ventures</a>
+          <a href="#work">Work</a>
+          <a href="#founder">Founder</a>
+          <a href="#partner">Partner</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main-content">
       <section id="top" class="hero" aria-labelledby="hero-heading">
-        <p class="eyebrow">Texas Movement International LLC</p>
+        <div class="container">
+          <p class="eyebrow">Texas Movement International LLC</p>
 
-        <h1 id="hero-heading">
-          Building brands, media, and digital platforms that move people forward.
-        </h1>
+          <h1 id="hero-heading">
+            Building brands, media, and digital platforms that move people forward.
+          </h1>
 
-        <p class="hero-copy">
-          Texas Movement is an independent venture studio developing connected
-          platforms across digital strategy, media, technology, commerce, and
-          culture. We turn ambitious ideas into clear brands, useful systems,
-          and durable online businesses.
-        </p>
+          <p class="hero-copy">
+            Texas Movement is an independent venture studio developing connected
+            platforms across digital strategy, media, technology, commerce, and
+            culture. We turn ambitious ideas into clear brands, useful systems,
+            and durable online businesses.
+          </p>
 
-        <div class="hero-actions">
-          <a class="button button-primary" href="#ecosystem">
-            Explore the ecosystem
-          </a>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#ecosystem">
+              Explore the ecosystem
+            </a>
 
-          <a class="button button-secondary" href="#contact">
-            Build with us
-          </a>
+            <a class="button button-secondary" href="#contact">
+              Build with us
+            </a>
+          </div>
         </div>
       </section>
 
@@ -88,57 +549,59 @@
         class="section"
         aria-labelledby="ecosystem-heading"
       >
-        <div class="section-intro">
-          <p class="eyebrow">The Texas Movement ecosystem</p>
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow">The Texas Movement ecosystem</p>
 
-          <h2 id="ecosystem-heading">
-            Independent ideas. Connected infrastructure.
-          </h2>
+            <h2 id="ecosystem-heading">
+              Independent ideas. Connected infrastructure.
+            </h2>
 
-          <p>
-            Texas Movement International is built as a connected portfolio.
-            Each vertical can serve a focused audience while sharing a
-            commitment to useful design, disciplined strategy, cultural
-            relevance, and long-term ownership.
-          </p>
-        </div>
-
-        <div class="ecosystem-grid">
-          <a class="ecosystem-card" href="#digital">
-            <span>01</span>
-            <h3>Digital Platforms</h3>
             <p>
-              Websites, web products, AI-assisted tools, and durable online
-              systems.
+              Texas Movement International is built as a connected portfolio.
+              Each vertical can serve a focused audience while sharing a
+              commitment to useful design, disciplined strategy, cultural
+              relevance, and long-term ownership.
             </p>
-          </a>
+          </div>
 
-          <a class="ecosystem-card" href="#strategy">
-            <span>02</span>
-            <h3>Brand Strategy</h3>
-            <p>
-              Positioning, messaging, content systems, and practical growth
-              direction.
-            </p>
-          </a>
+          <div class="ecosystem-grid">
+            <a class="ecosystem-card fade-in" href="#digital">
+              <span>01</span>
+              <h3>Digital Platforms</h3>
+              <p>
+                Websites, web products, AI-assisted tools, and durable online
+                systems.
+              </p>
+            </a>
 
-          <a class="ecosystem-card" href="#media">
-            <span>03</span>
-            <h3>Media &amp; Publishing</h3>
-            <p>
-              Editorial concepts, channel strategy, storytelling, and
-              distribution.
-            </p>
-          </a>
+            <a class="ecosystem-card fade-in" href="#strategy">
+              <span>02</span>
+              <h3>Brand Strategy</h3>
+              <p>
+                Positioning, messaging, content systems, and practical growth
+                direction.
+              </p>
+            </a>
 
-          <a class="ecosystem-card" href="#commerce">
-            <span>04</span>
-            <h3>Venture Development</h3>
-            <p>
-              New brands, commerce concepts, collaborations, and owned digital
-              assets.
-            </p>
-          </a>
+            <a class="ecosystem-card fade-in" href="#media">
+              <span>03</span>
+              <h3>Media &amp; Publishing</h3>
+              <p>
+                Editorial concepts, channel strategy, storytelling, and
+                distribution.
+              </p>
+            </a>
+
+            <a class="ecosystem-card fade-in" href="#commerce">
+              <span>04</span>
+              <h3>Venture Development</h3>
+              <p>
+                New brands, commerce concepts, collaborations, and owned digital
+                assets.
+              </p>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -147,141 +610,153 @@
         class="section section-dark"
         aria-labelledby="ventures-heading"
       >
-        <div class="section-intro">
-          <p class="eyebrow">What we build</p>
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow">What we build</p>
 
-          <h2 id="ventures-heading">
-            Built to move across categories.
-          </h2>
+            <h2 id="ventures-heading">
+              Built to move across categories.
+            </h2>
 
-          <p>
-            Texas Movement combines strategy, storytelling, design, technology,
-            and entrepreneurship to build useful platforms with room to grow.
-          </p>
+            <p>
+              Texas Movement combines strategy, storytelling, design, technology,
+              and entrepreneurship to build useful platforms with room to grow.
+            </p>
+          </div>
+
+          <article id="digital" class="venture fade-in">
+            <p class="venture-number">01 / Digital Platforms</p>
+
+            <div>
+              <h3>Websites, systems, and useful online products.</h3>
+
+              <p>
+                Texas Movement designs and develops modern digital foundations for
+                brands, founders, and emerging ventures—from high-performance
+                websites and reusable components to content systems, deployment
+                workflows, and AI-assisted tools.
+              </p>
+
+              <a href="#contact">Build a platform →</a>
+            </div>
+          </article>
+
+          <article id="strategy" class="venture fade-in">
+            <p class="venture-number">02 / Brand Strategy</p>
+
+            <div>
+              <h3>Clarity before content. Systems before scale.</h3>
+
+              <p>
+                We help define the core of a brand: its positioning, audience,
+                offer, message, content direction, and next practical moves. The
+                result is strategy built to guide action, not sit in a presentation
+                deck.
+              </p>
+
+              <a href="#contact">Develop your direction →</a>
+            </div>
+          </article>
+
+          <article id="media" class="venture fade-in">
+            <p class="venture-number">03 / Media &amp; Publishing</p>
+
+            <div>
+              <h3>Stories designed for modern distribution.</h3>
+
+              <p>
+                Texas Movement develops media concepts, editorial properties,
+                social content systems, and publishing formats that can reach
+                audiences through websites, video, newsletters, and the platforms
+                where culture is moving.
+              </p>
+
+              <a href="#contact">Create a media property →</a>
+            </div>
+          </article>
+
+          <article id="commerce" class="venture fade-in">
+            <p class="venture-number">04 / Venture Development</p>
+
+            <div>
+              <h3>Owned ventures with room to grow.</h3>
+
+              <p>
+                We build and explore original brands, products, apparel, events,
+                digital services, and collaborations at the intersection of
+                entrepreneurship, culture, performance, and independent ownership.
+              </p>
+
+              <a href="#contact">Explore a partnership →</a>
+            </div>
+          </article>
         </div>
-
-        <article id="digital" class="venture">
-          <p class="venture-number">01 / Digital Platforms</p>
-
-          <h3>Websites, systems, and useful online products.</h3>
-
-          <p>
-            Texas Movement designs and develops modern digital foundations for
-            brands, founders, and emerging ventures—from high-performance
-            websites and reusable components to content systems, deployment
-            workflows, and AI-assisted tools.
-          </p>
-
-          <a href="#contact">Build a platform →</a>
-        </article>
-
-        <article id="strategy" class="venture">
-          <p class="venture-number">02 / Brand Strategy</p>
-
-          <h3>Clarity before content. Systems before scale.</h3>
-
-          <p>
-            We help define the core of a brand: its positioning, audience,
-            offer, message, content direction, and next practical moves. The
-            result is strategy built to guide action, not sit in a presentation
-            deck.
-          </p>
-
-          <a href="#contact">Develop your direction →</a>
-        </article>
-
-        <article id="media" class="venture">
-          <p class="venture-number">03 / Media &amp; Publishing</p>
-
-          <h3>Stories designed for modern distribution.</h3>
-
-          <p>
-            Texas Movement develops media concepts, editorial properties,
-            social content systems, and publishing formats that can reach
-            audiences through websites, video, newsletters, and the platforms
-            where culture is moving.
-          </p>
-
-          <a href="#contact">Create a media property →</a>
-        </article>
-
-        <article id="commerce" class="venture">
-          <p class="venture-number">04 / Venture Development</p>
-
-          <h3>Owned ventures with room to grow.</h3>
-
-          <p>
-            We build and explore original brands, products, apparel, events,
-            digital services, and collaborations at the intersection of
-            entrepreneurship, culture, performance, and independent ownership.
-          </p>
-
-          <a href="#contact">Explore a partnership →</a>
-        </article>
       </section>
 
       <section id="work" class="section" aria-labelledby="work-heading">
-        <div class="section-intro">
-          <p class="eyebrow">Current direction</p>
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow">Current direction</p>
 
-          <h2 id="work-heading">
-            Building an independent ecosystem in public.
-          </h2>
-
-          <p>
-            Texas Movement is developing its parent platform alongside a growing
-            portfolio of digital properties, media concepts, strategic services,
-            and culture-driven ventures.
-          </p>
-        </div>
-
-        <div class="work-grid">
-          <article class="work-card">
-            <p>Digital Infrastructure</p>
-
-            <h3>Connected web ecosystems</h3>
+            <h2 id="work-heading">
+              Building an independent ecosystem in public.
+            </h2>
 
             <p>
-              Flexible website foundations designed to support multiple brands,
-              media properties, services, products, and future ventures without
-              losing clarity at the parent-brand level.
+              Texas Movement is developing its parent platform alongside a growing
+              portfolio of digital properties, media concepts, strategic services,
+              and culture-driven ventures.
             </p>
-          </article>
+          </div>
 
-          <article class="work-card">
-            <p>Brand Systems</p>
+          <div class="work-grid">
+            <article class="work-card fade-in">
+              <p class="eyebrow">Digital Infrastructure</p>
 
-            <h3>Positioning that creates momentum</h3>
+              <h3>Connected web ecosystems</h3>
 
-            <p>
-              Practical identity, messaging, audience, and content frameworks
-              for ideas that need a sharper foundation before they grow.
-            </p>
-          </article>
+              <p>
+                Flexible website foundations designed to support multiple brands,
+                media properties, services, products, and future ventures without
+                losing clarity at the parent-brand level.
+              </p>
+            </article>
 
-          <article class="work-card">
-            <p>Media Development</p>
+            <article class="work-card fade-in">
+              <p class="eyebrow">Brand Systems</p>
 
-            <h3>Publishing built for distribution</h3>
+              <h3>Positioning that creates momentum</h3>
 
-            <p>
-              Channel-native storytelling, social formats, editorial concepts,
-              and owned audience systems that do not depend on one platform
-              alone.
-            </p>
-          </article>
+              <p>
+                Practical identity, messaging, audience, and content frameworks
+                for ideas that need a sharper foundation before they grow.
+              </p>
+            </article>
 
-          <article class="work-card">
-            <p>Venture Studio</p>
+            <article class="work-card fade-in">
+              <p class="eyebrow">Media Development</p>
 
-            <h3>Ideas with long-term ownership</h3>
+              <h3>Publishing built for distribution</h3>
 
-            <p>
-              Original ventures, product concepts, partnerships, and
-              experiments designed to become useful independent assets over
-              time.
-            </p>
-          </article>
+              <p>
+                Channel-native storytelling, social formats, editorial concepts,
+                and owned audience systems that do not depend on one platform
+                alone.
+              </p>
+            </article>
+
+            <article class="work-card fade-in">
+              <p class="eyebrow">Venture Studio</p>
+
+              <h3>Ideas with long-term ownership</h3>
+
+              <p>
+                Original ventures, product concepts, partnerships, and
+                experiments designed to become useful independent assets over
+                time.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -290,39 +765,41 @@
         class="section"
         aria-labelledby="founder-heading"
       >
-        <div class="section-intro">
-          <p class="eyebrow">Founder &amp; President</p>
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow">Founder &amp; President</p>
 
-          <h2 id="founder-heading">
-            Built independently by Alexander Varghese Mathai.
-          </h2>
+            <h2 id="founder-heading">
+              Built independently by Alexander Varghese Mathai.
+            </h2>
 
-          <p>
-            Texas Movement International LLC is founded and wholly owned by
-            Alexander Varghese Mathai, Founder and President. The company brings
-            together brand strategy, digital development, media thinking, and
-            venture building to create independent platforms designed for
-            long-term usefulness and ownership.
-          </p>
+            <p>
+              Texas Movement International LLC is founded and wholly owned by
+              Alexander Varghese Mathai, Founder and President. The company brings
+              together brand strategy, digital development, media thinking, and
+              venture building to create independent platforms designed for
+              long-term usefulness and ownership.
+            </p>
 
-          <p>
-            Alexander’s personal platform documents the ideas, work, perspective,
-            and long-term vision behind the Texas Movement ecosystem.
-          </p>
+            <p style="margin-top: var(--space-md);">
+              Alexander's personal platform documents the ideas, work, perspective,
+              and long-term vision behind the Texas Movement ecosystem.
+            </p>
 
-          <div class="hero-actions">
-            <a
-              class="button button-primary"
-              href="https://alexandermathai.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit AlexanderMathai.com
-            </a>
+            <div class="hero-actions" style="margin-top: var(--space-xl);">
+              <a
+                class="button button-primary"
+                href="https://alexandermathai.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit AlexanderMathai.com
+              </a>
 
-            <a class="button button-secondary" href="#contact">
-              Connect with Alexander
-            </a>
+              <a class="button button-secondary" href="#contact">
+                Connect with Alexander
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -332,21 +809,27 @@
         class="section partnership"
         aria-labelledby="partner-heading"
       >
-        <p class="eyebrow">Partnerships</p>
+        <div class="container">
+          <div class="section-intro fade-in" style="text-align: center; margin: 0 auto;">
+            <p class="eyebrow">Partnerships</p>
 
-        <h2 id="partner-heading">
-          Have an idea worth moving forward?
-        </h2>
+            <h2 id="partner-heading">
+              Have an idea worth moving forward?
+            </h2>
 
-        <p>
-          Texas Movement works with founders, organizations, creators, and
-          aligned partners who want to build useful, culturally relevant, and
-          scalable digital ventures.
-        </p>
+            <p style="margin: 0 auto;">
+              Texas Movement works with founders, organizations, creators, and
+              aligned partners who want to build useful, culturally relevant, and
+              scalable digital ventures.
+            </p>
 
-        <a class="button button-primary" href="#contact">
-          Work with Texas Movement
-        </a>
+            <div class="hero-actions" style="justify-content: center; margin-top: var(--space-xl);">
+              <a class="button button-primary" href="#contact">
+                Work with Texas Movement
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section
@@ -354,65 +837,105 @@
         class="section contact-section"
         aria-labelledby="contact-heading"
       >
-        <div>
-          <p class="eyebrow">Contact</p>
+        <div class="container">
+          <div class="fade-in">
+            <p class="eyebrow">Contact</p>
 
-          <h2 id="contact-heading">
-            Start the conversation.
-          </h2>
+            <h2 id="contact-heading">
+              Start the conversation.
+            </h2>
 
-          <p>
-            Contact Alexander Mathai, Founder and President of Texas Movement
-            International LLC, to discuss a project, partnership, media concept,
-            digital platform, or venture opportunity.
-          </p>
-        </div>
+            <p>
+              Contact Alexander Mathai, Founder and President of Texas Movement
+              International LLC, to discuss a project, partnership, media concept,
+              digital platform, or venture opportunity.
+            </p>
+          </div>
 
-        <div class="contact-details">
-          <a class="contact-email" href="mailto:lexmathai@gmail.com">
-            lexmathai@gmail.com
-          </a>
+          <div class="contact-details fade-in">
+            <a class="contact-email" href="mailto:lexmathai@gmail.com">
+              lexmathai@gmail.com
+            </a>
 
-          <a class="contact-phone" href="tel:+18722102505">
-            872-210-2505
-          </a>
+            <a class="contact-phone" href="tel:+18722102505">
+              872-210-2505
+            </a>
 
-          <p class="contact-note">
-            Alexander Mathai<br />
-            Founder &amp; President<br />
-            Texas Movement International LLC
-          </p>
+            <p class="contact-note">
+              Alexander Mathai<br />
+              Founder &amp; President<br />
+              Texas Movement International LLC
+            </p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>
-        © <span id="current-year">2026</span> Texas Movement International LLC.
-        All rights reserved.
-      </p>
+      <div class="container">
+        <p>
+          © <span id="current-year">2026</span> Texas Movement International LLC.
+          All rights reserved.
+        </p>
 
-      <div>
-        <a href="#top">Back to top</a>
+        <div>
+          <a href="#top">Back to top</a>
 
-        <a
-          href="https://alexandermathai.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          AlexanderMathai.com
-        </a>
+          <a
+            href="https://alexandermathai.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AlexanderMathai.com
+          </a>
 
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
-
     <script>
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const primaryNav = document.querySelector('#primary-navigation');
+
+        if (menuToggle && primaryNav) {
+          menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isOpen);
+            primaryNav.classList.toggle('is-open');
+          });
+          
+          // Close menu when a link is clicked
+          document.querySelectorAll('#primary-navigation a').forEach(link => {
+            link.addEventListener('click', () => {
+              if (primaryNav.classList.contains('is-open')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                primaryNav.classList.remove('is-open');
+              }
+            });
+          });
+        }
+
+        // 2. Dynamic Year
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // 3. Scroll Animations (Intersection Observer)
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); // Only animate once
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      });
     </script>
   </body>
 </html>
