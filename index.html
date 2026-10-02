@@ -247,9 +247,24 @@
       .text-link:hover { border-bottom-color: var(--text-primary); }
 
       /* Media Archive */
-      .archive-layout {
-        display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-xl); align-items: start;
+      .playlist-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
       }
+
+      @media (min-width: 900px) {
+        .playlist-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .playlist-card {
+        display: flex;
+        flex-direction: column;
+      }
+
       .archive-label {
         margin-bottom: var(--space-sm); color: var(--text-muted);
         font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
@@ -261,33 +276,6 @@
       }
       .video-wrapper iframe {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
-      }
-      
-      /* CSS-Only TikTok/Shorts Archive Card */
-      .short-card {
-        position: relative; aspect-ratio: 9/16; background: var(--bg-tertiary);
-        border: 1px solid var(--border-color); overflow: hidden; display: flex;
-        flex-direction: column; justify-content: flex-end; padding: 1.5rem;
-        text-decoration: none; color: var(--text-primary); transition: border-color 0.3s ease;
-        max-width: 350px;
-      }
-      .short-card:hover { border-color: var(--border-hover); }
-      .short-card::before {
-        content: ""; position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
-        z-index: 1;
-      }
-      .short-card-content { position: relative; z-index: 2; }
-      .short-play {
-        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-        width: 64px; height: 64px; border: 2px solid rgba(255,255,255,0.8); border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; z-index: 2;
-        background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);
-      }
-      .short-play::after {
-        content: ""; width: 0; height: 0;
-        border-top: 10px solid transparent; border-bottom: 10px solid transparent;
-        border-left: 16px solid white; margin-left: 4px;
       }
 
       /* Capabilities */
@@ -360,10 +348,9 @@
         .primary-navigation a { padding: 1rem 0; border-bottom: 1px solid var(--border-color); font-size: 1rem; }
         .nav-cta { margin: 0.85rem 0 1rem; padding: 0.8rem 1rem !important; text-align: center; }
         
-        .archive-layout, .ecosystem-layout, .contact-layout, .portfolio-grid, .capabilities-grid {
+        .ecosystem-layout, .contact-layout, .portfolio-grid, .capabilities-grid {
           grid-template-columns: 1fr;
         }
-        .short-card { max-width: 100%; }
       }
 
       @media (max-width: 640px) {
@@ -504,32 +491,47 @@
             </p>
           </div>
           
-          <div class="archive-layout">
-            <div class="archive-broadcast fade-in">
-              <p class="archive-label">Performance Systems / Long-Form</p>
+          <div class="playlist-grid">
+            <div class="playlist-card fade-in">
+              <p class="archive-label">Systems & Strategy</p>
               <div class="video-wrapper">
-                <!-- REPLACE 'dQw4w9WgXcQ' WITH YOUR ACTUAL YOUTUBE VIDEO ID -->
                 <iframe 
-                  src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" 
-                  title="Texas Movement Performance Broadcast" 
+                  src="https://www.youtube-nocookie.com/embed/WvlaWG2Oi-k?list=PLfuA6emw6UmxLB43itgFOb0JnXdUwBAHV" 
+                  title="Systems & Strategy Playlist" 
                   frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowfullscreen 
                   loading="lazy">
                 </iframe>
               </div>
             </div>
-            
-            <div class="archive-signal fade-in">
-              <p class="archive-label">TMM / Pinned Vertical Signal</p>
-              <!-- REPLACE HREF WITH YOUR ACTUAL PINNED TIKTOK URL -->
-              <a href="https://www.tiktok.com/@texasmovementmedia" target="_blank" rel="noopener noreferrer" class="short-card" aria-label="Play pinned Texas Movement Media broadcast">
-                <div class="short-play" aria-hidden="true"></div>
-                <div class="short-card-content">
-                  <strong>Texas Movement Media</strong>
-                  <span style="color: var(--text-muted); font-size: 0.85rem;">Pinned Signal / Distribution</span>
-                </div>
-              </a>
+
+            <div class="playlist-card fade-in">
+              <p class="archive-label">Performance & Biomechanics</p>
+              <div class="video-wrapper">
+                <iframe 
+                  src="https://www.youtube-nocookie.com/embed/5u33Y2hljYY?list=PLfuA6emw6UmzTXWCqT2PDfU2r8285TBY8" 
+                  title="Performance & Biomechanics Playlist" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen 
+                  loading="lazy">
+                </iframe>
+              </div>
+            </div>
+
+            <div class="playlist-card fade-in">
+              <p class="archive-label">Media & Distribution</p>
+              <div class="video-wrapper">
+                <iframe 
+                  src="https://www.youtube-nocookie.com/embed/nWA1A1PN9rA?list=PLfuA6emw6UmzgkJlNTndJpLaRwHoRf_l2" 
+                  title="Media & Distribution Playlist" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen 
+                  loading="lazy">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
