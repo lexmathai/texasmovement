@@ -262,6 +262,8 @@
       .playlist-card {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
       }
 
       .archive-subsection {
@@ -281,11 +283,39 @@
         font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
         letter-spacing: 0.1em; text-transform: uppercase;
       }
+      
       .video-wrapper {
         position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-        border: 1px solid var(--border-color); background: #000;
+        border: 1px solid var(--border-color); background: #000; width: 100%;
       }
       .video-wrapper iframe {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      }
+
+      /* Shorts / Vertical Video */
+      .shorts-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        justify-items: center;
+      }
+
+      @media (min-width: 900px) {
+        .shorts-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .shorts-wrapper {
+        position: relative; 
+        width: 100%; 
+        max-width: 260px; 
+        aspect-ratio: 9/16; 
+        overflow: hidden;
+        border: 1px solid var(--border-color); 
+        background: #000;
+      }
+      .shorts-wrapper iframe {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
       }
 
@@ -547,6 +577,53 @@
           </div>
 
           <div class="archive-subsection">
+            <p class="archive-subsection-label">Texas Movement Media / Interviews & Signal</p>
+            <div class="shorts-grid">
+              <div class="playlist-card fade-in">
+                <p class="archive-label">TMM / 01</p>
+                <div class="shorts-wrapper">
+                  <iframe 
+                    src="https://www.youtube-nocookie.com/embed/DdBtsPrLWyw" 
+                    title="Texas Movement Media Interview 01" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="playlist-card fade-in">
+                <p class="archive-label">TMM / 02</p>
+                <div class="shorts-wrapper">
+                  <iframe 
+                    src="https://www.youtube-nocookie.com/embed/CvWHPohZn4U" 
+                    title="Texas Movement Media Interview 02" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="playlist-card fade-in">
+                <p class="archive-label">TMM / 03</p>
+                <div class="shorts-wrapper">
+                  <iframe 
+                    src="https://www.youtube-nocookie.com/embed/ZErLbUsIKmk" 
+                    title="Texas Movement Media Interview 03" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="archive-subsection">
             <p class="archive-subsection-label">Texas Movement Performance / Selected Broadcasts</p>
             <div class="playlist-grid">
               <div class="playlist-card fade-in">
@@ -721,7 +798,7 @@
             <h2 id="founder-heading">Led by Alexander Varghese Mathai.</h2>
             <p>
               Alexander Mathai is the founder and President of Texas Movement International LLC. 
-              He leads the company's current work across web systems, media, performance education, 
+              He leads the company’s current work across web systems, media, performance education, 
               brand development, and independent venture building.
             </p>
             <p>
