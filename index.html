@@ -251,7 +251,6 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-        margin-bottom: 2.5rem;
       }
 
       @media (min-width: 900px) {
@@ -263,6 +262,18 @@
       .playlist-card {
         display: flex;
         flex-direction: column;
+      }
+
+      .archive-subsection {
+        margin-top: var(--space-2xl);
+        padding-top: var(--space-xl);
+        border-top: 1px solid var(--border-color);
+      }
+
+      .archive-subsection-label {
+        margin-bottom: var(--space-lg); color: var(--text-muted);
+        font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
       }
 
       .archive-label {
@@ -534,6 +545,53 @@
               </div>
             </div>
           </div>
+
+          <div class="archive-subsection">
+            <p class="archive-subsection-label">Texas Movement Performance / Selected Broadcasts</p>
+            <div class="playlist-grid">
+              <div class="playlist-card fade-in">
+                <p class="archive-label">TMP / 01</p>
+                <div class="video-wrapper">
+                  <iframe 
+                    src="https://www.youtube-nocookie.com/embed/s_kkW-PH-04" 
+                    title="Texas Movement Performance Broadcast 01" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="playlist-card fade-in">
+                <p class="archive-label">TMP / 02</p>
+                <div class="video-wrapper">
+                  <iframe 
+                    src="https://www.youtube-nocookie.com/embed/ZGEsb4fa3Tg" 
+                    title="Texas Movement Performance Broadcast 02" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="playlist-card fade-in">
+                <p class="archive-label">TMP / 03</p>
+                <div class="video-wrapper">
+                  <iframe 
+                    src="https://www.youtube-nocookie.com/embed/pmbVfO0nFEY" 
+                    title="Texas Movement Performance Broadcast 03" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -663,7 +721,7 @@
             <h2 id="founder-heading">Led by Alexander Varghese Mathai.</h2>
             <p>
               Alexander Mathai is the founder and President of Texas Movement International LLC. 
-              He leads the company’s current work across web systems, media, performance education, 
+              He leads the company's current work across web systems, media, performance education, 
               brand development, and independent venture building.
             </p>
             <p>
