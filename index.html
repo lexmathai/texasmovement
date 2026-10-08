@@ -68,8 +68,14 @@
         --text-secondary: #b8b8b8;
         --text-muted: #858585;
         --accent: #ffffff;
-        --success: #c8ff9b;
         --focus: #ffffff;
+
+        /* Vertical Accents */
+        --accent-consulting: #d97706; /* Texas Amber */
+        --accent-ventures: #1e3a8a;   /* Deep Blue */
+        --accent-hero: #dc2626;       /* Red */
+        --accent-media: #9333ea;      /* Purple */
+        --accent-performance: #059669; /* Emerald Green */
 
         --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif;
@@ -120,7 +126,7 @@
       p { max-width: 67ch; color: var(--text-secondary); font-size: 1.05rem; }
 
       .container { width: min(100% - 2.5rem, var(--container-max)); margin-inline: auto; }
-      .section { padding: var(--space-2xl) 0; border-bottom: 1px solid var(--border-color); }
+      .section { padding: var(--space-2xl) 0; border-bottom: 1px solid var(--border-color); position: relative; }
       .section-dark { background: var(--bg-secondary); }
 
       .eyebrow {
@@ -142,6 +148,7 @@
       }
       .skip-link:focus { top: 1rem; }
 
+      /* Header & Nav */
       .site-header {
         position: sticky; top: 0; z-index: 50;
         border-bottom: 1px solid var(--border-color);
@@ -164,8 +171,22 @@
       }
 
       .primary-navigation { display: flex; align-items: center; gap: 1.4rem; }
-      .primary-navigation a { color: var(--text-secondary); font-size: 0.84rem; font-weight: 650; }
-      .primary-navigation a:hover { color: var(--text-primary); }
+      .nav-link { 
+        color: var(--text-secondary); font-size: 0.84rem; font-weight: 650; 
+        transition: color 0.2s ease;
+        position: relative;
+      }
+      .nav-link:hover { color: var(--text-primary); }
+      .nav-link.active { color: var(--text-primary); }
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--text-primary);
+      }
 
       .nav-cta {
         padding: 0.55rem 0.8rem; border: 1px solid var(--border-hover);
@@ -179,6 +200,7 @@
         font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       }
 
+      /* Hero & Hub */
       .hero {
         position: relative; display: grid; min-height: 82vh;
         align-items: center; overflow: hidden;
@@ -211,149 +233,173 @@
       .button-primary:hover { background: #dcdcdc; color: var(--bg-primary); }
       .button-secondary { border-color: var(--border-hover); background: transparent; color: var(--text-primary); }
       .button-secondary:hover { border-color: var(--text-primary); background: var(--bg-tertiary); }
-
-      .signal-strip {
-        display: grid; grid-template-columns: repeat(4, 1fr);
-        margin-top: var(--space-xl);
-        border-top: 1px solid var(--border-color); border-left: 1px solid var(--border-color);
-      }
-      .signal-item {
-        min-height: 100px; padding: 1rem;
-        border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
-      }
-      .signal-item strong {
-        display: block; margin-bottom: 0.25rem; color: var(--text-primary);
-        font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;
-      }
-      .signal-item span { color: var(--text-muted); font-size: 0.85rem; line-height: 1.35; }
-
-      /* Portfolio / Deployments */
-      .portfolio-grid {
-        display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md);
-      }
-      .portfolio-card {
-        padding: var(--space-lg); border: 1px solid var(--border-color);
-        background: var(--bg-tertiary); transition: all 0.3s ease;
-      }
-      .portfolio-card:hover {
-        border-color: var(--border-hover); background: var(--bg-elevated); transform: translateY(-4px);
-      }
-      .portfolio-sector {
-        display: block; margin-bottom: var(--space-md); color: var(--success);
-        font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.1em; text-transform: uppercase;
-      }
-      .text-link {
-        width: fit-content; margin-top: auto; padding-bottom: 0.15rem;
-        border-bottom: 1px solid var(--border-hover); color: var(--text-primary);
-        font-size: 0.92rem; font-weight: 750; display: inline-block;
-      }
-      .text-link:hover { border-bottom-color: var(--text-primary); }
-
-      /* Media Archive */
-      .playlist-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      @media (min-width: 900px) {
-        .playlist-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-      .playlist-card {
+      
+      .btn-centered {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-      }
-
-      .archive-subsection {
-        margin-top: var(--space-2xl);
-        padding-top: var(--space-xl);
-        border-top: 1px solid var(--border-color);
-      }
-
-      .archive-subsection-label {
-        margin-bottom: var(--space-lg); color: var(--text-muted);
-        font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.14em; text-transform: uppercase;
-      }
-
-      .archive-label {
-        margin-bottom: var(--space-sm); color: var(--text-muted);
-        font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.1em; text-transform: uppercase;
+        justify-content: center;
+        margin-top: var(--space-xl);
       }
       
+      .btn-centered .button {
+        min-width: 240px;
+      }
+
+      /* Brand Cards (Hub Grid) */
+      .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-xl);
+      }
+
+      .brand-card {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-color);
+        border-top: 3px solid var(--card-accent);
+        padding: var(--space-lg);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .brand-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-hover);
+        background: var(--bg-elevated);
+      }
+
+      .brand-card .tag {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--card-accent);
+        margin-bottom: var(--space-sm);
+      }
+
+      .brand-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .brand-card p {
+        font-size: 0.95rem;
+        margin-bottom: var(--space-md);
+        flex-grow: 1;
+      }
+
+      .brand-card .arrow {
+        font-size: 1.5rem;
+        color: var(--text-muted);
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+
+      .brand-card:hover .arrow {
+        transform: translateX(4px);
+        color: var(--card-accent);
+      }
+
+      /* Video Embeds */
       .video-wrapper {
         position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
         border: 1px solid var(--border-color); background: #000; width: 100%;
+        border-radius: 4px;
       }
       .video-wrapper iframe {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
       }
 
-      /* Shorts / Vertical Video */
+      /* Shorts */
       .shorts-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        justify-items: center;
-      }
-
-      @media (min-width: 900px) {
-        .shorts-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-lg);
       }
 
       .shorts-wrapper {
         position: relative; 
         width: 100%; 
-        max-width: 260px; 
         aspect-ratio: 9/16; 
         overflow: hidden;
         border: 1px solid var(--border-color); 
         background: #000;
+        border-radius: 4px;
       }
       .shorts-wrapper iframe {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
       }
 
-      /* Capabilities */
-      .capabilities-grid {
-        display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);
+      /* Udemy Callout */
+      .udemy-callout {
+        background: linear-gradient(135deg, var(--accent-performance), #047857);
+        padding: var(--space-xl);
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: var(--space-xl);
       }
-      .capability-card {
-        padding: var(--space-lg); border-top: 1px solid var(--border-hover);
+      .udemy-callout h3 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin-bottom: var(--space-sm);
       }
-      .capability-card .number {
-        display: block; margin-bottom: var(--space-lg); color: var(--text-muted);
-        font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em;
+      .udemy-callout p {
+        color: rgba(255,255,255,0.9);
+        max-width: 60ch;
+        margin: 0 auto var(--space-lg);
+      }
+      .udemy-callout .button-primary {
+        background: #ffffff;
+        color: var(--accent-performance);
+      }
+      .udemy-callout .button-primary:hover {
+        background: #f3f4f6;
       }
 
-      /* Ecosystem */
-      .ecosystem-layout {
-        display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-xl); align-items: start;
+      /* Services / Feature Grids */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
       }
-      .ecosystem-list { display: grid; border-top: 1px solid var(--border-color); }
-      .ecosystem-link {
-        display: grid; grid-template-columns: 130px 1fr auto; gap: var(--space-md);
-        align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-color);
-      }
-      .ecosystem-link:hover .arrow { transform: translateX(4px); }
-      .ecosystem-link strong { color: var(--text-primary); font-size: 0.98rem; }
-      .ecosystem-link span { color: var(--text-muted); font-size: 0.89rem; }
-      .arrow { color: var(--text-primary); font-size: 1.2rem; transition: transform 0.2s ease; }
 
-      /* Founder */
-      .founder-panel {
-        padding: var(--space-lg); border: 1px solid var(--border-color); background: var(--bg-tertiary);
+      .feature-card {
+        padding: var(--space-lg);
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-color);
+        border-left: 3px solid var(--section-accent);
       }
-      .founder-panel h3 { max-width: 15ch; font-size: clamp(1.55rem, 3vw, 2.35rem); }
+      
+      .feature-card h3 {
+        font-size: 1.1rem;
+        color: var(--section-accent);
+      }
+
+      /* Social Links */
+      .social-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+      }
+      
+      .social-link {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 2px;
+        font-size: 0.85rem;
+        font-family: var(--font-mono);
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+      }
+      
+      .social-link:hover {
+        border-color: var(--section-accent);
+        color: var(--section-accent);
+      }
 
       /* Contact */
       .contact-layout {
@@ -370,7 +416,7 @@
       .site-footer { padding: var(--space-xl) 0; color: var(--text-muted); font-size: 0.84rem; }
       .footer-inner {
         display: flex; align-items: flex-start; justify-content: space-between;
-        gap: var(--space-lg);
+        gap: var(--space-lg); flex-wrap: wrap;
       }
       .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1rem 1.3rem; }
       .footer-links a:hover { color: var(--text-primary); }
@@ -391,21 +437,16 @@
         }
         .primary-navigation.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .primary-navigation a { padding: 1rem 0; border-bottom: 1px solid var(--border-color); font-size: 1rem; }
+        .nav-link.active::after { display: none; }
         .nav-cta { margin: 0.85rem 0 1rem; padding: 0.8rem 1rem !important; text-align: center; }
         
-        .ecosystem-layout, .contact-layout, .portfolio-grid, .capabilities-grid {
-          grid-template-columns: 1fr;
-        }
+        .contact-layout { grid-template-columns: 1fr; }
       }
 
       @media (max-width: 640px) {
         :root { --space-xl: 3rem; --space-2xl: 4.5rem; }
         .container { width: min(100% - 2rem, var(--container-max)); }
         .hero-content { padding: 4.5rem 0; }
-        .signal-strip { grid-template-columns: 1fr; }
-        .signal-item { min-height: auto; }
-        .ecosystem-link { grid-template-columns: 1fr auto; }
-        .ecosystem-link span { grid-column: 1 / -1; }
         .footer-inner { flex-direction: column; }
         .footer-links { justify-content: flex-start; }
       }
@@ -436,16 +477,18 @@
         </button>
 
         <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
-          <a href="#deployments">Deployments</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#archive">Archive</a>
-          <a href="#ecosystem">Ecosystem</a>
+          <a href="#consulting" class="nav-link">Consulting</a>
+          <a href="#media" class="nav-link">Media</a>
+          <a href="#performance" class="nav-link">Performance</a>
+          <a href="#hero" class="nav-link">HERO</a>
+          <a href="#ventures" class="nav-link">Ventures</a>
           <a class="nav-cta" href="#contact">Initiate Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="main-content">
+      <!-- HUB HERO -->
       <section class="hero" aria-labelledby="hero-heading">
         <div class="container hero-content">
           <p class="eyebrow">Texas Movement International LLC · Est. Chicago</p>
@@ -460,370 +503,253 @@
             foundations that allow independent founders and organizations to scale with ownership.
           </p>
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="#deployments">
-              View deployed infrastructure
+          <div class="brand-grid">
+            <a href="#consulting" class="brand-card" style="--card-accent: var(--accent-consulting);">
+              <span class="tag">Consulting</span>
+              <h3>Digital Infrastructure</h3>
+              <p>Custom web systems, content architecture, and technical deployments.</p>
+              <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a class="button button-secondary" href="#capabilities">
-              Explore studio capabilities
-            </a>
-          </div>
-
-          <div class="signal-strip" aria-label="Texas Movement operating divisions">
-            <div class="signal-item">
-              <strong>Infrastructure</strong>
-              <span>Digital architecture, web systems, and technical deployments</span>
-            </div>
-            <div class="signal-item">
-              <strong>Media</strong>
-              <span>Editorial properties, documentaries, and distribution networks</span>
-            </div>
-            <div class="signal-item">
-              <strong>Performance</strong>
-              <span>Biomechanics, sprint mechanics, and athletic education</span>
-            </div>
-            <div class="signal-item">
-              <strong>Ventures</strong>
-              <span>Independent brands, commerce systems, and partnerships</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="deployments" class="section" aria-labelledby="deployments-heading">
-        <div class="container">
-          <div class="section-intro fade-in">
-            <p class="eyebrow">Selected Deployments</p>
-            <h2 id="deployments-heading">Engineered systems for independent ventures.</h2>
-            <p>
-              We do not build templates. We architect durable digital infrastructure tailored 
-              to the operational realities and long-term ownership goals of our partners.
-            </p>
-          </div>
-
-          <div class="portfolio-grid">
-            <article class="portfolio-card fade-in">
-              <span class="portfolio-sector">Legal Infrastructure</span>
-              <h3>Sankofa Law Group</h3>
-              <p>
-                Enterprise-grade digital architecture, secure client-routing, and authoritative 
-                brand positioning for a specialized legal practice.
-              </p>
-              <a href="https://sankofalawgroup.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
-            </article>
-
-            <article class="portfolio-card fade-in">
-              <span class="portfolio-sector">Commerce Systems</span>
-              <h3>Diamond K Beauty</h3>
-              <p>
-                High-conversion storefront infrastructure, product taxonomy, and digital brand 
-                systems for an independent cosmetics label.
-              </p>
-              <a href="https://diamondkbeauty.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="archive" class="section section-dark" aria-labelledby="archive-heading">
-        <div class="container">
-          <div class="section-intro fade-in">
-            <p class="eyebrow">The Media Archive</p>
-            <h2 id="archive-heading">Signal, systems, and performance documentation.</h2>
-            <p>
-              Selected broadcasts from Texas Movement Media and Texas Movement Performance. 
-              Long-form systems analysis and vertical signal distribution.
-            </p>
-          </div>
-          
-          <div class="playlist-grid">
-            <div class="playlist-card fade-in">
-              <p class="archive-label">Systems & Strategy</p>
-              <div class="video-wrapper">
-                <iframe 
-                  src="https://www.youtube-nocookie.com/embed/WvlaWG2Oi-k?list=PLfuA6emw6UmxLB43itgFOb0JnXdUwBAHV" 
-                  title="Systems & Strategy Playlist" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen 
-                  loading="lazy">
-                </iframe>
-              </div>
-            </div>
-
-            <div class="playlist-card fade-in">
-              <p class="archive-label">Performance & Biomechanics</p>
-              <div class="video-wrapper">
-                <iframe 
-                  src="https://www.youtube-nocookie.com/embed/5u33Y2hljYY?list=PLfuA6emw6UmzTXWCqT2PDfU2r8285TBY8" 
-                  title="Performance & Biomechanics Playlist" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen 
-                  loading="lazy">
-                </iframe>
-              </div>
-            </div>
-
-            <div class="playlist-card fade-in">
-              <p class="archive-label">Media & Distribution</p>
-              <div class="video-wrapper">
-                <iframe 
-                  src="https://www.youtube-nocookie.com/embed/nWA1A1PN9rA?list=PLfuA6emw6UmzgkJlNTndJpLaRwHoRf_l2" 
-                  title="Media & Distribution Playlist" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen 
-                  loading="lazy">
-                </iframe>
-              </div>
-            </div>
-          </div>
-
-          <div class="archive-subsection">
-            <p class="archive-subsection-label">Texas Movement Media / Interviews & Signal</p>
-            <div class="shorts-grid">
-              <div class="playlist-card fade-in">
-                <p class="archive-label">TMM / 01</p>
-                <div class="shorts-wrapper">
-                  <iframe 
-                    src="https://www.youtube-nocookie.com/embed/DdBtsPrLWyw" 
-                    title="Texas Movement Media Interview 01" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen 
-                    loading="lazy">
-                  </iframe>
-                </div>
-              </div>
-
-              <div class="playlist-card fade-in">
-                <p class="archive-label">TMM / 02</p>
-                <div class="shorts-wrapper">
-                  <iframe 
-                    src="https://www.youtube-nocookie.com/embed/CvWHPohZn4U" 
-                    title="Texas Movement Media Interview 02" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen 
-                    loading="lazy">
-                  </iframe>
-                </div>
-              </div>
-
-              <div class="playlist-card fade-in">
-                <p class="archive-label">TMM / 03</p>
-                <div class="shorts-wrapper">
-                  <iframe 
-                    src="https://www.youtube-nocookie.com/embed/ZErLbUsIKmk" 
-                    title="Texas Movement Media Interview 03" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen 
-                    loading="lazy">
-                  </iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="archive-subsection">
-            <p class="archive-subsection-label">Texas Movement Performance / Selected Broadcasts</p>
-            <div class="playlist-grid">
-              <div class="playlist-card fade-in">
-                <p class="archive-label">TMP / 01</p>
-                <div class="video-wrapper">
-                  <iframe 
-                    src="https://www.youtube-nocookie.com/embed/s_kkW-PH-04" 
-                    title="Texas Movement Performance Broadcast 01" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen 
-                    loading="lazy">
-                  </iframe>
-                </div>
-              </div>
-
-              <div class="playlist-card fade-in">
-                <p class="archive-label">TMP / 02</p>
-                <div class="video-wrapper">
-                  <iframe 
-                    src="https://www.youtube-nocookie.com/embed/ZGEsb4fa3Tg" 
-                    title="Texas Movement Performance Broadcast 02" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen 
-                    loading="lazy">
-                  </iframe>
-                </div>
-              </div>
-
-              <div class="playlist-card fade-in">
-                <p class="archive-label">TMP / 03</p>
-                <div class="video-wrapper">
-                  <iframe 
-                    src="https://www.youtube-nocookie.com/embed/pmbVfO0nFEY" 
-                    title="Texas Movement Performance Broadcast 03" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen 
-                    loading="lazy">
-                  </iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="capabilities" class="section" aria-labelledby="capabilities-heading">
-        <div class="container">
-          <div class="section-intro fade-in">
-            <p class="eyebrow">Operating Capabilities</p>
-            <h2 id="capabilities-heading">Distinct divisions. One connected system.</h2>
-            <p>
-              Texas Movement operates across three primary disciplines. Each division functions 
-              independently but shares the parent company's standard for rigorous systems thinking.
-            </p>
-          </div>
-
-          <div class="capabilities-grid">
-            <article class="capability-card fade-in">
-              <span class="number">01 / INFRASTRUCTURE</span>
-              <h3>Digital Architecture</h3>
-              <p>
-                Custom web systems, content architecture, and technical deployments for 
-                organizations requiring more than a template. We build the digital real estate 
-                that ventures operate on.
-              </p>
-            </article>
-
-            <article class="capability-card fade-in">
-              <span class="number">02 / MEDIA</span>
+            <a href="#media" class="brand-card" style="--card-accent: var(--accent-media);">
+              <span class="tag">Media</span>
               <h3>Editorial & Distribution</h3>
-              <p>
-                Texas Movement Media develops documentary formats, interviews, and 
-                distribution-minded publishing designed to reach audiences across owned and 
-                rented platforms.
-              </p>
-            </article>
-
-            <article class="capability-card fade-in">
-              <span class="number">03 / PERFORMANCE</span>
+              <p>Documentary formats, interviews, and distribution-minded publishing.</p>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#performance" class="brand-card" style="--card-accent: var(--accent-performance);">
+              <span class="tag">Performance</span>
               <h3>Biomechanics & Education</h3>
-              <p>
-                Texas Movement Performance translates sprint mechanics, strength principles, 
-                and athletic training into structured educational protocols and course-based learning.
-              </p>
-            </article>
+              <p>Sprint mechanics, strength principles, and structured educational protocols.</p>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#hero" class="brand-card" style="--card-accent: var(--accent-hero);">
+              <span class="tag">HERO</span>
+              <h3>Performance Apparel</h3>
+              <p>Footwear, apparel, and athlete collaboration. Currently incubating.</p>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#ventures" class="brand-card" style="--card-accent: var(--accent-ventures);">
+              <span class="tag">Ventures</span>
+              <h3>Independent Brands</h3>
+              <p>Commerce systems, partnerships, and long-term equity building.</p>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="section section-dark" aria-labelledby="process-heading">
+      <!-- CONSULTING -->
+      <section id="consulting" class="section" style="--section-accent: var(--accent-consulting);" aria-labelledby="consulting-heading">
         <div class="container">
           <div class="section-intro fade-in">
-            <p class="eyebrow">The Method</p>
-            <h2 id="process-heading">Diagnose. Deploy. Distribute.</h2>
-          </div>
-
-          <div class="capabilities-grid">
-            <article class="capability-card fade-in">
-              <span class="number">01 / DIAGNOSE</span>
-              <h3>Audit & Architecture</h3>
-              <p>
-                We audit existing infrastructure, identify operational bottlenecks, and define 
-                the architectural scope required to support the venture's next phase of growth.
-              </p>
-            </article>
-
-            <article class="capability-card fade-in">
-              <span class="number">02 / DEPLOY</span>
-              <h3>Build & Launch</h3>
-              <p>
-                We engineer the digital system, build the media property, or structure the 
-                performance protocol with a focus on durability and long-term ownership.
-              </p>
-            </article>
-
-            <article class="capability-card fade-in">
-              <span class="number">03 / DISTRIBUTE</span>
-              <h3>Scale & Connect</h3>
-              <p>
-                We connect the deployed asset to the broader TMI ecosystem, audience channels, 
-                and distribution networks to generate compounding momentum.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="ecosystem" class="section" aria-labelledby="ecosystem-heading">
-        <div class="container ecosystem-layout">
-          <div class="section-intro fade-in">
-            <p class="eyebrow">The Ecosystem</p>
-            <h2 id="ecosystem-heading">A connected portfolio of independent properties.</h2>
+            <p class="eyebrow" style="color: var(--accent-consulting);">01 / Consulting</p>
+            <h2 id="consulting-heading">Digital architecture and strategic deployments.</h2>
             <p>
-              Texas Movement International is the parent organization. Each property has a 
-              distinct public job, while the system shares standards for design, credibility, 
-              and long-term ownership.
+              We audit existing infrastructure, identify operational bottlenecks, and engineer 
+              the digital real estate that ventures operate on.
             </p>
           </div>
 
-          <div class="ecosystem-list fade-in">
-            <a class="ecosystem-link" href="https://alexandermathai.com/" target="_blank" rel="noopener noreferrer">
-              <strong>A. Mathai</strong>
-              <span>Founder perspective, public work, and personal channels</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </a>
-            <a class="ecosystem-link" href="#archive">
-              <strong>Media</strong>
-              <span>TMM broadcasts, documentaries, and distribution</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </a>
-            <a class="ecosystem-link" href="#archive">
-              <strong>Performance</strong>
-              <span>Biomechanics, athletic education, and protocols</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </a>
-            <a class="ecosystem-link" href="https://hero.texasmovement.com" target="_blank" rel="noopener noreferrer">
-              <strong>HERO</strong>
-              <span>Performance apparel & footwear (Venture currently incubating)</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </a>
+          <div class="feature-grid fade-in">
+            <div class="feature-card">
+              <h3>Systems Audit</h3>
+              <p>Comprehensive review of digital infrastructure and operational bottlenecks.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Custom Builds</h3>
+              <p>High-performance web systems and content architecture for independent ventures.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Strategic Advisory</h3>
+              <p>Ongoing decision-making support and long-term ownership planning.</p>
+            </div>
+          </div>
+
+          <div class="fade-in">
+            <p class="eyebrow">Featured Broadcast</p>
+            <div class="video-wrapper">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/UEe2pXlHy1k" 
+                title="Texas Movement Consulting Broadcast" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="btn-centered fade-in">
+            <a href="#contact" class="button button-primary">Initiate Consulting Inquiry</a>
           </div>
         </div>
       </section>
 
-      <section id="founder" class="section section-dark" aria-labelledby="founder-heading">
+      <!-- MEDIA -->
+      <section id="media" class="section section-dark" style="--section-accent: var(--accent-media);" aria-labelledby="media-heading">
         <div class="container">
-          <div class="founder-panel fade-in">
-            <p class="eyebrow">Founder & President</p>
-            <h2 id="founder-heading">Led by Alexander Varghese Mathai.</h2>
+          <div class="section-intro fade-in">
+            <p class="eyebrow" style="color: var(--accent-media);">02 / Media</p>
+            <h2 id="media-heading">Signal, systems, and distribution.</h2>
             <p>
-              Alexander Mathai is the founder and President of Texas Movement International LLC. 
-              He leads the company’s current work across web systems, media, performance education, 
-              brand development, and independent venture building.
+              Texas Movement Media develops documentary formats, interviews, and 
+              distribution-minded publishing designed to reach audiences across owned and rented platforms.
             </p>
-            <p>
-              AlexanderMathai.com is the personal authority layer for his background, ideas, and 
-              long-range perspective. TexasMovement.com remains the company hub for infrastructure, 
-              properties, and business operations.
-            </p>
+          </div>
 
-            <div class="button-row" style="margin-top: var(--space-lg);">
-              <a class="button button-primary" href="https://alexandermathai.com/" target="_blank" rel="noopener noreferrer">
-                Visit AlexanderMathai.com
-              </a>
-              <a class="button button-secondary" href="https://www.linkedin.com/in/alexandermathai" target="_blank" rel="noopener noreferrer">
-                Connect on LinkedIn
-              </a>
+          <div class="fade-in">
+            <p class="eyebrow">Shades of AI / Systems & Strategy Playlist</p>
+            <div class="video-wrapper">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/WvlaWG2Oi-k?list=PLfuA6emw6UmxLB43itgFOb0JnXdUwBAHV" 
+                title="Shades of AI Playlist" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="fade-in" style="margin-top: var(--space-xl);">
+            <p class="eyebrow">TMM / Interviews & Signal (Shorts)</p>
+            <div class="shorts-grid">
+              <div class="shorts-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/DdBtsPrLWyw" title="TMM Interview 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="shorts-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/CvWHPohZn4U" title="TMM Interview 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="shorts-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/ZErLbUsIKmk" title="TMM Interview 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section" aria-labelledby="contact-heading">
+      <!-- PERFORMANCE -->
+      <section id="performance" class="section" style="--section-accent: var(--accent-performance);" aria-labelledby="performance-heading">
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow" style="color: var(--accent-performance);">03 / Performance</p>
+            <h2 id="performance-heading">Biomechanics and athletic education.</h2>
+            <p>
+              Texas Movement Performance translates sprint mechanics, strength principles, 
+              and athletic training into structured educational protocols and course-based learning.
+            </p>
+          </div>
+
+          <div class="udemy-callout fade-in">
+            <h3>Elite Secrets</h3>
+            <p>Structured course-based learning for sprint mechanics, mobility, and athletic training. Available now on Udemy.</p>
+            <a href="https://www.udemy.com/course/elitesecrets/" target="_blank" rel="noopener noreferrer" class="button button-primary">Enroll in Elite Secrets</a>
+          </div>
+
+          <div class="fade-in">
+            <p class="eyebrow">Featured Performance Broadcasts</p>
+            <div class="shorts-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/s_kkW-PH-04" title="TMP Broadcast 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/ZGEsb4fa3Tg" title="TMP Broadcast 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/pmbVfO0nFEY" title="TMP Broadcast 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in" style="margin-top: var(--space-xl);">
+            <p class="eyebrow">Performance Shorts</p>
+            <div class="shorts-grid">
+              <div class="shorts-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/5u33Y2hljYY" title="TMP Short 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="shorts-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/5u33Y2hljYY" title="TMP Short 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="shorts-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/5u33Y2hljYY" title="TMP Short 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HERO -->
+      <section id="hero" class="section section-dark" style="--section-accent: var(--accent-hero);" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow" style="color: var(--accent-hero);">04 / HERO</p>
+            <h2 id="hero-heading">Performance apparel and footwear.</h2>
+            <p>
+              HERO is an independent commerce venture focused on performance apparel, 
+              footwear, and athlete collaboration. 
+            </p>
+          </div>
+
+          <div class="feature-grid fade-in">
+            <div class="feature-card">
+              <h3>Apparel</h3>
+              <p>Technical fabrics and durable construction for independent movers.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Footwear</h3>
+              <p>Biomechanically informed design for sprint and strength training.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Athlete Collab</h3>
+              <p>Partnerships with independent athletes and performance coaches.</p>
+            </div>
+          </div>
+
+          <div class="fade-in">
+            <p class="eyebrow">Follow the Development</p>
+            <div class="social-grid">
+              <a href="https://www.youtube.com/@herofootwear" target="_blank" rel="noopener noreferrer" class="social-link">YouTube</a>
+              <a href="https://www.instagram.com/herofootwearusa" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
+              <a href="https://www.tiktok.com/@herofootwear" target="_blank" rel="noopener noreferrer" class="social-link">TikTok</a>
+            </div>
+          </div>
+
+          <div class="btn-centered fade-in">
+            <a href="https://hero.texasmovement.com" target="_blank" rel="noopener noreferrer" class="button button-secondary">Commerce Offline / In Development</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VENTURES -->
+      <section id="ventures" class="section" style="--section-accent: var(--accent-ventures);" aria-labelledby="ventures-heading">
+        <div class="container">
+          <div class="section-intro fade-in">
+            <p class="eyebrow" style="color: var(--accent-ventures);">05 / Ventures</p>
+            <h2 id="ventures-heading">Independent brands and commerce systems.</h2>
+            <p>
+              The venture arm of Texas Movement International. We incubate, build, and scale 
+              independent commerce properties and strategic partnerships.
+            </p>
+          </div>
+
+          <div class="feature-grid fade-in">
+            <div class="feature-card" style="grid-column: 1 / -1; text-align: center; padding: var(--space-2xl) var(--space-lg);">
+              <h3 style="color: var(--accent-ventures); font-size: 1.5rem;">New Ventures Incubating</h3>
+              <p style="max-width: 50ch; margin: 0 auto;">
+                We are currently developing new commerce systems and brand partnerships. 
+                Select deployments and case studies are available in our Consulting division.
+              </p>
+              <div class="social-grid" style="justify-content: center; margin-top: var(--space-lg);">
+                <a href="https://sankofalawgroup.com" target="_blank" rel="noopener noreferrer" class="social-link">Sankofa Law Group</a>
+                <a href="https://diamondkbeauty.com" target="_blank" rel="noopener noreferrer" class="social-link">Diamond K Beauty</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section section-dark" aria-labelledby="contact-heading">
         <div class="container contact-layout">
           <div class="fade-in">
             <p class="eyebrow">Initiate Contact</p>
@@ -870,6 +796,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Mobile Menu
         const menuToggle = document.querySelector(".menu-toggle");
         const primaryNav = document.querySelector("#primary-navigation");
 
@@ -888,13 +815,15 @@
           });
         }
 
+        // Dynamic Year
         const yearElement = document.getElementById("current-year");
         if (yearElement) {
           yearElement.textContent = new Date().getFullYear();
         }
 
+        // Fade-in Animations
         if ("IntersectionObserver" in window) {
-          const observer = new IntersectionObserver(
+          const fadeObserver = new IntersectionObserver(
             (entries, activeObserver) => {
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -907,13 +836,34 @@
           );
 
           document.querySelectorAll(".fade-in").forEach((element) => {
-            observer.observe(element);
+            fadeObserver.observe(element);
           });
         } else {
           document.querySelectorAll(".fade-in").forEach((element) => {
             element.classList.add("is-visible");
           });
         }
+
+        // Active Nav Link Detection (Simulating Astro.url.pathname logic)
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const navObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              navLinks.forEach(link => {
+                // Strip trailing slashes conceptually by matching exact href
+                const isActive = link.getAttribute('href') === `#${id}`;
+                link.classList.toggle('active', isActive);
+              });
+            }
+          });
+        }, { 
+          rootMargin: '-40% 0px -55% 0px' // Triggers when section is near the top of the viewport
+        });
+
+        sections.forEach(section => navObserver.observe(section));
       });
     </script>
   </body>
