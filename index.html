@@ -378,6 +378,55 @@
         color: var(--section-accent);
       }
 
+      /* Portfolio Cards */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
+      }
+
+      .portfolio-card {
+        padding: var(--space-lg);
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+      }
+
+      .portfolio-card .sector {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-ventures);
+        margin-bottom: var(--space-sm);
+      }
+
+      .portfolio-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .portfolio-card p {
+        font-size: 0.95rem;
+        margin-bottom: var(--space-md);
+      }
+
+      .portfolio-card .text-link {
+        display: inline-block;
+        color: var(--accent-ventures);
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--accent-ventures);
+        padding-bottom: 2px;
+      }
+
       /* Social Links */
       .social-grid {
         display: flex;
@@ -530,8 +579,8 @@
             </a>
             <a href="#ventures" class="brand-card" style="--card-accent: var(--accent-ventures);">
               <span class="tag">Ventures</span>
-              <h3>Independent Brands</h3>
-              <p>Commerce systems, partnerships, and long-term equity building.</p>
+              <h3>Small Business Websites</h3>
+              <p>TMC builds websites for small business owners and independent ventures.</p>
               <span class="arrow" aria-hidden="true">→</span>
             </a>
           </div>
@@ -598,11 +647,25 @@
           </div>
 
           <div class="fade-in">
-            <p class="eyebrow">Shades of AI / Systems & Strategy Playlist</p>
+            <p class="eyebrow">Shades of AI / Systems & Strategy</p>
             <div class="video-wrapper">
               <iframe 
-                src="https://www.youtube-nocookie.com/embed/WvlaWG2Oi-k?list=PLfuA6emw6UmxLB43itgFOb0JnXdUwBAHV" 
+                src="https://www.youtube-nocookie.com/embed/videoseries?list=PLfuA6emw6UmxLB43itgFOb0JnXdUwBAHV" 
                 title="Shades of AI Playlist" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="fade-in" style="margin-top: var(--space-xl);">
+            <p class="eyebrow">Shame of Emperors</p>
+            <div class="video-wrapper">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/SLBw57BdGFA" 
+                title="Shame of Emperors" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen 
@@ -647,6 +710,20 @@
           </div>
 
           <div class="fade-in">
+            <p class="eyebrow">Weight of Crowns</p>
+            <div class="video-wrapper">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/SLBw57BdGFA" 
+                title="Weight of Crowns" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="fade-in" style="margin-top: var(--space-xl);">
             <p class="eyebrow">Featured Performance Broadcasts</p>
             <div class="shorts-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
               <div class="video-wrapper">
@@ -725,25 +802,38 @@
         <div class="container">
           <div class="section-intro fade-in">
             <p class="eyebrow" style="color: var(--accent-ventures);">05 / Ventures</p>
-            <h2 id="ventures-heading">Independent brands and commerce systems.</h2>
+            <h2 id="ventures-heading">Websites for small business owners.</h2>
             <p>
-              The venture arm of Texas Movement International. We incubate, build, and scale 
-              independent commerce properties and strategic partnerships.
+              Texas Movement Consulting (TMC) designs and builds professional websites for 
+              small business owners, independent professionals, and growing ventures. Each 
+              deployment is engineered for clarity, credibility, and long-term ownership.
             </p>
           </div>
 
-          <div class="feature-grid fade-in">
-            <div class="feature-card" style="grid-column: 1 / -1; text-align: center; padding: var(--space-2xl) var(--space-lg);">
-              <h3 style="color: var(--accent-ventures); font-size: 1.5rem;">New Ventures Incubating</h3>
-              <p style="max-width: 50ch; margin: 0 auto;">
-                We are currently developing new commerce systems and brand partnerships. 
-                Select deployments and case studies are available in our Consulting division.
+          <div class="portfolio-grid fade-in">
+            <article class="portfolio-card">
+              <span class="sector">Legal Infrastructure</span>
+              <h3>Sankofa Law Group</h3>
+              <p>
+                Enterprise-grade digital architecture, secure client-routing, and authoritative 
+                brand positioning for a specialized legal practice.
               </p>
-              <div class="social-grid" style="justify-content: center; margin-top: var(--space-lg);">
-                <a href="https://sankofalawgroup.com" target="_blank" rel="noopener noreferrer" class="social-link">Sankofa Law Group</a>
-                <a href="https://diamondkbeauty.com" target="_blank" rel="noopener noreferrer" class="social-link">Diamond K Beauty</a>
-              </div>
-            </div>
+              <a href="https://sankofalawgroup.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
+            </article>
+
+            <article class="portfolio-card">
+              <span class="sector">Commerce Systems</span>
+              <h3>Diamond K Beauty</h3>
+              <p>
+                High-conversion storefront infrastructure, product taxonomy, and digital brand 
+                systems for an independent cosmetics label.
+              </p>
+              <a href="https://diamondkbeauty.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
+            </article>
+          </div>
+
+          <div class="btn-centered fade-in">
+            <a href="#contact" class="button button-primary">Discuss Your Website Project</a>
           </div>
         </div>
       </section>
@@ -844,7 +934,7 @@
           });
         }
 
-        // Active Nav Link Detection (Simulating Astro.url.pathname logic)
+        // Active Nav Link Detection
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -853,14 +943,13 @@
             if (entry.isIntersecting) {
               const id = entry.target.getAttribute('id');
               navLinks.forEach(link => {
-                // Strip trailing slashes conceptually by matching exact href
                 const isActive = link.getAttribute('href') === `#${id}`;
                 link.classList.toggle('active', isActive);
               });
             }
           });
         }, { 
-          rootMargin: '-40% 0px -55% 0px' // Triggers when section is near the top of the viewport
+          rootMargin: '-40% 0px -55% 0px'
         });
 
         sections.forEach(section => navObserver.observe(section));
