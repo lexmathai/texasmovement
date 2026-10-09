@@ -7,6 +7,22 @@
 <title>Texas Movement International | Diagnose it. Build it. Hand it over.</title>
 <meta name="description" content="Texas Movement International builds strategy, websites, media, and AI workflows for founders and small organizations, then hands them over to run without us.">
 <link rel="canonical" href="https://texasmovement.com/">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://texasmovement.com/">
+<meta property="og:title" content="Texas Movement International | Diagnose it. Build it. Hand it over.">
+<meta property="og:description" content="Texas Movement International builds strategy, websites, media, and AI workflows for founders and small organizations, then hands them over to run without us.">
+<meta property="og:image" content="https://texasmovement.com/Tmilogo3ogimage.JPG">
+<meta property="og:image:alt" content="Texas Movement International logo">
+<meta property="og:site_name" content="Texas Movement International">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Texas Movement International | Diagnose it. Build it. Hand it over.">
+<meta name="twitter:description" content="Texas Movement International builds strategy, websites, media, and AI workflows for founders and small organizations, then hands them over to run without us.">
+<meta name="twitter:image" content="https://texasmovement.com/Tmilogo3ogimage.JPG">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -1182,7 +1198,6 @@ noscript .notice{padding:20px;border:2px solid var(--red);margin:20px auto}
         group.hidden = !visible;
         if(visible){count++;}
       });
-      /* Pause loaded players in hidden collections without discarding them. */
       mediaGroups.filter(function(group){return group.hidden;}).forEach(function(group){
         Array.prototype.forEach.call(group.querySelectorAll("iframe"),function(frame){
           if(frame.contentWindow){
@@ -1198,8 +1213,6 @@ noscript .notice{padding:20px;border:2px solid var(--red);margin:20px auto}
     });
   });
 
-  /* Progressive enhancement: preserve every original embed and URL.
-     JavaScript replaces the unloaded iframe with a click-to-load facade. */
   all(".video-wrapper iframe, .shorts-wrapper iframe").forEach(function(frame){
     var source = frame.getAttribute("src");
     var title = frame.title;
@@ -1252,7 +1265,6 @@ noscript .notice{padding:20px;border:2px solid var(--red);margin:20px auto}
     });
   });
 
-  /* Readiness checklist, deterministic priorities, no score gating. */
   var readinessItems = [
     {id:"offer",title:"Clarify the main offer.",action:"Write a sentence explaining what you provide, who it is for, and the next action."},
     {id:"contact",title:"Make contact easy and test it.",action:"Add a visible inquiry or booking action. Complete a test from your phone and confirm it reaches you."},
@@ -1319,3 +1331,47 @@ noscript .notice{padding:20px;border:2px solid var(--red);margin:20px auto}
     lines.push("","NEXT THREE PRIORITIES");
     if(state.missing.length){
       state.missing.slice(0,3).forEach(function(item,index){
+        lines.push((index+1)+". "+item.title+" — "+item.action);
+      });
+    }else{
+      lines.push("All fundamentals confirmed. Do a final real-world walkthrough.");
+    }
+    lines.push("","Planning summary only. Not a technical certification or automated scan.");
+    return lines.join("\n");
+  }
+
+  $("readiness-form").addEventListener("change",updateReadiness);
+  $("readiness-form").addEventListener("submit",function(event){
+    event.preventDefault();
+    updateReadiness();
+    $("readiness-status").textContent = "Your results are ready. Download them, email yourself, or attach them to an inquiry.";
+    moveTo("readiness","use-readiness");
+  });
+  $("use-readiness").addEventListener("click",function(){attachSummary("readiness",readinessText(),"Consulting");});
+  $("download-readiness").addEventListener("click",function(){
+    downloadText("texas-movement-readiness.txt",readinessText());
+    $("readiness-status").textContent = "Your readiness results download is ready.";
+  });
+  $("email-readiness").addEventListener("click",function(){
+    location.href="mailto:?subject="+encodeURIComponent("Website launch readiness")+"&body="+encodeURIComponent(readinessText());
+  });
+  updateReadiness();
+
+  /* Contact form. */
+  $("f").addEventListener("submit",function(event){
+    event.preventDefault();
+    var g = function(id){return $(id).value;};
+    var body = "Name: "+g("nm")+"\nEmail: "+g("em")+"\nService: "+g("svc")+"\n\n"+g("msg");
+    if(g("attached").trim()){body += "\n\n--------------------\n\nAttached summaries:\n\n"+g("attached");}
+    location.href="mailto:alexander@texasmovement.com?subject="+encodeURIComponent("Project inquiry: "+g("svc"))+"&body="+encodeURIComponent(body);
+  });
+  $("copy-inquiry").addEventListener("click",function(){
+    var g = function(id){return $(id).value;};
+    var body = "Name: "+g("nm")+"\nEmail: "+g("em")+"\nService: "+g("svc")+"\n\n"+g("msg");
+    if(g("attached").trim()){body += "\n\n--------------------\n\nAttached summaries:\n\n"+g("attached");}
+    copyText(body,"contact-status");
+  });
+})();
+</script>
+</body>
+</html>
