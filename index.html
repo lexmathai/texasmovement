@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#14202B">
 <title>Texas Movement International | Where Culture Meets Competence</title>
-<meta name="description" content="Websites and consulting for independent professionals in the age of AI. We diagnose the problem, build the solution, and hand it over so you own it completely.">
+<meta name="description" content="Websites, consulting, and AI workflows for independent professionals. Diagnose. Build. Hand over.">
 <link rel="canonical" href="https://texasmovement.com/">
 
 <!-- Open Graph / Social Sharing — 16:9 -->
@@ -58,13 +58,12 @@
   --ink:#14202B;--concrete:#E3E6E7;--white:#F6F7F7;
   --blue:#1479B8;--red:#C8102E;--mute:#46535F;
   --line:rgba(20,32,43,.25);
-  --success:#1a7a3d;
-  --error:#a61b1b;
+  --success:#1a7a3d;--error:#a61b1b;
   --head:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
   --body:"Source Serif 4",Georgia,serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
+html{scroll-behavior:smooth;scroll-padding-top:120px} /* Increased for sticky header */
 body{margin:0;background:var(--concrete);color:var(--ink);font:1.0625rem/1.65 var(--body)}
 a{color:inherit;text-underline-offset:4px}
 button,input,select,textarea{font:inherit}
@@ -80,8 +79,16 @@ button{touch-action:manipulation}
 .link{font-weight:600}
 .skip-link{position:absolute;left:20px;top:-100px;background:var(--ink);color:var(--white);padding:12px 18px;z-index:100}
 .skip-link:focus{top:12px}
-header{position:relative;padding:18px 0 34px}
-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:17px;background:linear-gradient(to bottom,var(--blue) 0 5px,transparent 5px 12px,var(--blue) 12px 17px)}
+
+/* STICKY HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--concrete);
+  padding:18px 0 34px;
+  border-bottom:4px solid var(--blue);
+}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .mark{font:800 1.6rem/1 var(--head);font-stretch:62%;text-decoration:none}
 nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font:600 .9rem var(--head)}
@@ -94,10 +101,60 @@ nav a:hover{text-decoration:underline}
 .btn.blue{background:var(--blue);border-color:var(--blue)}
 .btn.blue:hover{background:var(--ink);border-color:var(--ink)}
 .btn:disabled{opacity:.55;cursor:not-allowed}
-.btn:disabled:hover{background:var(--ink);border-color:var(--ink)}
 nav .btn{padding:10px 14px;min-height:44px}
 .actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .actions a:not(.btn){font-weight:600}
+
+/* ECOSYSTEM WHEEL */
+.wheel-section{padding:40px 0 64px;background:var(--white);border-bottom:2px solid var(--ink)}
+.wheel-container{position:relative;width:320px;height:320px;margin:40px auto 0}
+.wheel-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:160px;height:160px;border-radius:50%;
+  background:var(--ink);color:var(--white);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:20px;z-index:2;
+  border:4px solid var(--blue);
+  transition:all 0.4s ease;
+}
+.wheel-center h3{font:800 1rem var(--head);margin:0 0 8px;line-height:1.2}
+.wheel-center p{font:400 0.75rem var(--body);margin:0;opacity:0.9}
+
+.wheel-ring{position:absolute;top:0;left:0;width:100%;height:100%}
+.wheel-node{
+  position:absolute;width:90px;height:90px;border-radius:50%;
+  background:var(--concrete);border:3px solid var(--ink);
+  font:700 0.8rem var(--head);text-transform:uppercase;letter-spacing:0.05em;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  cursor:pointer;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  z-index:3;
+}
+.wheel-node:hover{background:var(--blue);color:var(--white);border-color:var(--blue);transform:scale(1.1)}
+.wheel-node.active{background:var(--blue);color:var(--white);border-color:var(--ink);transform:scale(1.15);box-shadow:0 0 0 4px var(--concrete),0 0 0 7px var(--blue)}
+
+/* Node Positioning */
+.wheel-node:nth-child(1){top:-45px;left:50%;transform:translateX(-50%)}
+.wheel-node:nth-child(2){top:50%;right:-45px;transform:translateY(-50%)}
+.wheel-node:nth-child(3){bottom:-45px;left:50%;transform:translateX(-50%)}
+.wheel-node:nth-child(4){top:50%;left:-45px;transform:translateY(-50%)}
+
+/* Hover/Active transforms to maintain centering */
+.wheel-node:nth-child(1):hover,.wheel-node:nth-child(1).active{transform:translateX(-50%) scale(1.15)}
+.wheel-node:nth-child(2):hover,.wheel-node:nth-child(2).active{transform:translateY(-50%) scale(1.15)}
+.wheel-node:nth-child(3):hover,.wheel-node:nth-child(3).active{transform:translateX(-50%) scale(1.15)}
+.wheel-node:nth-child(4):hover,.wheel-node:nth-child(4).active{transform:translateY(-50%) scale(1.15)}
+
+/* Spokes */
+.wheel-spoke{position:absolute;background:var(--line);z-index:1}
+.spoke-1{width:3px;height:70px;top:25px;left:50%;transform:translateX(-50%)}
+.spoke-2{width:70px;height:3px;top:50%;right:25px;transform:translateY(-50%)}
+.spoke-3{width:3px;height:70px;bottom:25px;left:50%;transform:translateX(-50%)}
+.spoke-4{width:70px;height:3px;top:50%;left:25px;transform:translateY(-50%)}
+
+.wheel-details{margin-top:40px;text-align:center;max-width:600px;margin-left:auto;margin-right:auto;min-height:180px}
+.wheel-details h4{font:800 1.4rem var(--head);margin:0 0 12px}
+.wheel-details p{margin:0 0 16px;color:var(--mute)}
+.wheel-details .actions{justify-content:center;margin-top:24px}
 
 /* Hero */
 .hero{padding:64px 0}
@@ -190,7 +247,6 @@ legend{font:800 1.1rem var(--head);margin-bottom:12px}
 .founder-note p{margin:0 0 18px}
 .founder .btn{background:var(--white);color:var(--ink);border-color:var(--white)}
 .founder .btn:hover{background:var(--blue);color:var(--white);border-color:var(--blue)}
-
 .headshot{width:200px;height:200px;border-radius:50%;border:4px solid var(--blue);object-fit:cover;margin-bottom:24px}
 
 /* Contact */
@@ -216,6 +272,19 @@ footer p{margin:0}
 @media(max-width:480px){
   nav{gap:12px}
   section{padding:48px 0}
+  .wheel-container{width:280px;height:280px}
+  .wheel-center{width:130px;height:130px}
+  .wheel-center h3{font-size:0.85rem}
+  .wheel-center p{font-size:0.65rem}
+  .wheel-node{width:75px;height:75px;font-size:0.7rem}
+  .wheel-node:nth-child(1){top:-37px}
+  .wheel-node:nth-child(2){right:-37px}
+  .wheel-node:nth-child(3){bottom:-37px}
+  .wheel-node:nth-child(4){left:-37px}
+  .spoke-1{height:55px;top:18px}
+  .spoke-2{width:55px;right:18px}
+  .spoke-3{height:55px;bottom:18px}
+  .spoke-4{width:55px;left:18px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -231,17 +300,45 @@ footer p{margin:0}
   <div class="wrap bar">
     <a class="mark" href="#top">Texas Movement</a>
     <nav aria-label="Primary">
+      <a href="#ecosystem">Ecosystem</a>
       <a href="#proof">Our Work</a>
       <a href="#process">How We Work</a>
-      <a href="#ai">AI Stance</a>
-      <a href="#tools">Free Tools</a>
       <a href="#founder">About</a>
-      <a class="btn" href="#start">Start a Project</a>
-    </nav>
+      <a class="btn" href="#start">Start a Project</a</nav>
   </div>
 </header>
 
 <main id="top">
+  
+  <!-- ECOSYSTEM WHEEL -->
+  <section class="wheel-section" id="ecosystem">
+    <div class="wrap">
+      <p class="eyebrow" style="text-align:center">The TMI Holding Company</p>
+      <h2 class="display section-title" style="text-align:center">Select an Asset</h2>
+      
+      <div class="wheel-container">
+        <div class="wheel-center" id="wheel-center">
+          <!-- Populated by JS -->
+        </div>
+        <div class="wheel-ring">
+          <div class="wheel-spoke spoke-1"></div>
+          <div class="wheel-spoke spoke-2"></div>
+          <div class="wheel-spoke spoke-3"></div>
+          <div class="wheel-spoke spoke-4"></div>
+          
+          <button class="wheel-node active" data-key="consulting" aria-label="Select Consulting">Consulting</button>
+          <button class="wheel-node" data-key="hero" aria-label="Select HERO">HERO</button>
+          <button class="wheel-node" data-key="performance" aria-label="Select Performance">Performance</button>
+          <button class="wheel-node" data-key="media" aria-label="Select Media">Media</button each="wheel-node">
+        </div>
+      </div>
+
+      <div class="wheel-details" id="wheel-details">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
@@ -289,25 +386,6 @@ footer p{margin:0}
           <p>High-conversion storefront infrastructure, product taxonomy, and digital brand systems for an independent cosmetics label.</p>
           <a href="https://diamondkbeauty.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI STANCE -->
-  <section id="ai">
-    <div class="wrap">
-      <p class="eyebrow">Our AI stance</p>
-      <h2 class="display section-title">AI is a tool.<br>Judgment is yours.</h2>
-      <p class="section-intro">The age of AI has flooded the market with cheap websites, generic content, and "set-and-forget" automations that break the moment a platform updates. We use AI deliberately — as leverage, not as a replacement for your voice, your practice, or your clients' trust.</p>
-
-      <div class="ai-callout">
-        <h3>How we actually use AI</h3>
-        <ul>
-          <li><strong>Intake and follow-up automation.</strong> Your leads route to the right place, and no inquiry falls through the cracks.</li>
-          <li><strong>Content drafting with human review.</strong> AI writes the first pass. You or I edit it until it sounds like you — because it has to.</li>
-          <li><strong>Systems documentation.</strong> We use AI to accelerate the handover, so your team owns the system from day one.</li>
-          <li><strong>Never as a substitute for your judgment.</strong> No AI chatbot poses as you. No generated content ships without your approval. Your credibility is not something we automate.</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -533,7 +611,6 @@ footer p{margin:0}
           <label for="attached">Attached tool summaries <span class="small">Optional; review or edit before sending</span>
             <textarea id="attached" name="attached_summaries" maxlength="10000" placeholder="Project builder and checklist results appear here when you choose to attach them."></textarea>
           </label>
-          <!-- Honeypot for spam protection -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <input type="hidden" name="_subject" value="New project inquiry from texasmovement.com">
           <div class="actions">
@@ -637,6 +714,63 @@ footer p{margin:0}
     $("contact-status").className = "status";
     moveTo("start","nm");
   }
+
+  /* === ECOSYSTEM WHEEL LOGIC === */
+  var assets = {
+    consulting: {
+      title: "Consulting",
+      fullName: "Texas Movement Consulting",
+      desc: "Website building and modernization advising.",
+      details: "<strong>Selected Deployments:</strong><br>• <a href='https://sankofalawgroup.com' target='_blank' class='text-link'>SankofaLawGroup.com</a><br>• <a href='https://diamondkbeauty.com' target='_blank' class='text-link'>DiamondKBeauty.com</a><br>• <a href='https://alexandermathai.com' target='_blank' class='text-link'>AlexanderMathai.com</a>",
+      action: "<a class='btn' href='#start'>Start a Consulting Project</a>"
+    },
+    hero: {
+      title: "HERO",
+      fullName: "HERO By Texas Movement",
+      desc: "Apparel and track & field footwear.",
+      details: "<div style='border:2px solid var(--red); padding:16px; background:rgba(200,16,46,0.05); margin:16px 0;'><strong style='color:var(--red)'>Under Construction</strong><br>The HERO storefront is currently paused for strategic realignment. Join the waitlist to be notified when the next collection drops.</div>",
+      action: "<form action='https://formspree.io/f/mpqewaod' method='POST' style='display:flex;gap:8px;max-width:320px;margin:0 auto;'><input type='email' name='email' placeholder='Enter your email' required style='flex:1;'><button type='submit' class='btn blue' style='padding:10px 16px;'>Notify Me</button><input type='hidden' name='_subject' value='HERO Waitlist'></form>"
+    },
+    performance: {
+      title: "Performance",
+      fullName: "Texas Movement Performance",
+      desc: "Athletic coaching and executive training.",
+      details: "Elevate your physical and mental performance with systems designed for executives and athletes, based on the Elite Secrets methodology.",
+      action: "<div class='actions'><a class='btn' href='https://www.udemy.com/course/elite-secrets/' target='_blank'>Get Elite Secrets on Udemy</a><a class='btn secondary' href='#start'>Inquire About Seminars</a></div>"
+    },
+    media: {
+      title: "Media",
+      fullName: "Texas Movement Media",
+      desc: "Long and short form content production.",
+      details: "<strong>Featured Playlists:</strong><br>• <a href='https://youtube.com' target='_blank' class='text-link'>Shades of AI</a><br>• <a href='https://youtube.com' target='_blank' class='text-link'>Shame of Emperors</a><br><span class='small' style='display:block;margin-top:8px;'>Future: Miniseries and feature films.</span>",
+      action: "<a class='btn' href='https://youtube.com/@texasmovementperformance' target='_blank'>Visit Our Channels</a>"
+    }
+  };
+
+  function updateWheel(key){
+    all('.wheel-node').forEach(function(node){
+      node.classList.remove('active');
+      if(node.dataset.key === key) node.classList.add('active');
+    });
+
+    var data = assets[key];
+    $('wheel-center').innerHTML = '<h3>' + data.title + '</h3><p>' + data.desc + '</p>';
+    $('wheel-details').innerHTML = 
+      '<h4>' + data.fullName + '</h4>' +
+      '<p>' + data.details + '</p>' +
+      '<div class="actions">' + data.action + '</div>';
+  }
+
+  all('.wheel-node').forEach(function(node){
+    node.addEventListener('click', function(){
+      updateWheel(this.dataset.key);
+    });
+  });
+  
+  // Initialize default
+  updateWheel('consulting');
+  /* === END WHEEL LOGIC === */
+
 
   var scopeNames = {
     landing:"Focused landing page",
