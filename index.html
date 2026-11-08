@@ -1,904 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#14202B">
-<title>Texas Movement International | Where Culture Meets Competence</title>
-<meta name="description" content="Websites and consulting for independent professionals in the age of AI. We diagnose the problem, build the solution, and hand it over so you own it completely.">
-<link rel="canonical" href="https://texasmovement.com/">
-
-<!-- Open Graph / Social Sharing — 16:9 -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://texasmovement.com/">
-<meta property="og:title" content="Texas Movement International | Where Culture Meets Competence">
-<meta property="og:description" content="Websites and consulting for independent professionals in the age of AI. Diagnose. Build. Hand over.">
-<meta property="og:image" content="https://texasmovement.com/TMCLogo26.png">
-<meta property="og:image:width" content="1920">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:alt" content="Texas Movement International — Where Culture Meets Competence">
-<meta property="og:site_name" content="Texas Movement International">
-
-<!-- Twitter Card — 16:9 -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Texas Movement International | Where Culture Meets Competence">
-<meta name="twitter:description" content="Websites and consulting for independent professionals in the age of AI. Diagnose. Build. Hand over.">
-<meta name="twitter:image" content="https://texasmovement.com/TMCLogo26.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Texas Movement International LLC",
-  "alternateName": "Texas Movement Consulting",
-  "url": "https://texasmovement.com/",
-  "description": "Websites and consulting for independent professionals in the age of AI.",
-  "founder": {
-    "@type": "Person",
-    "name": "Alexander Varghese Mathai",
-    "url": "https://alexandermathai.com/"
-  },
-  "email": "lexmathai@gmail.com",
-  "telephone": "+1-872-210-2505",
-  "areaServed": "United States",
-  "sameAs": [
-    "https://alexandermathai.com/",
-    "https://www.linkedin.com/in/alexandermathai"
-  ],
-  "knowsAbout": ["Website Design", "Digital Strategy", "Small Business Consulting", "AI Workflows", "Web Development"]
-}
-</script>
-
-<style>
-:root{
-  --ink:#14202B;--concrete:#E3E6E7;--white:#F6F7F7;
-  --blue:#1479B8;--red:#C8102E;--mute:#46535F;
-  --line:rgba(20,32,43,.25);
-  --success:#1a7a3d;
-  --error:#a61b1b;
-  --head:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
-  --body:"Source Serif 4",Georgia,serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
-body{margin:0;background:var(--concrete);color:var(--ink);font:1.0625rem/1.65 var(--body)}
-a{color:inherit;text-underline-offset:4px}
-button,input,select,textarea{font:inherit}
-button{touch-action:manipulation}
-:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
-[hidden]{display:none!important}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.display{font-family:var(--head);font-stretch:62%;font-weight:800;line-height:.95;letter-spacing:-.025em;margin:0}
-.section-title{font-size:clamp(2.8rem,8vw,5.2rem);margin-bottom:18px}
-.section-intro{max-width:44rem;margin:0 0 30px}
-.eyebrow{font:800 .8rem/1.4 var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin:0 0 12px}
-.small{color:var(--mute);font-size:.95rem}
-.link{font-weight:600}
-.skip-link{position:absolute;left:20px;top:-100px;background:var(--ink);color:var(--white);padding:12px 18px;z-index:100}
-.skip-link:focus{top:12px}
-header{position:relative;padding:18px 0 34px}
-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:17px;background:linear-gradient(to bottom,var(--blue) 0 5px,transparent 5px 12px,var(--blue) 12px 17px)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.mark{font:800 1.6rem/1 var(--head);font-stretch:62%;text-decoration:none}
-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font:600 .9rem var(--head)}
-nav a{text-decoration:none}
-nav a:hover{text-decoration:underline}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:var(--white);font:700 1rem/1.3 var(--head);padding:14px 22px;border:2px solid var(--ink);text-decoration:none;cursor:pointer;min-height:48px;text-align:center}
-.btn:hover{background:var(--blue);border-color:var(--blue)}
-.btn.secondary{background:transparent;color:var(--ink)}
-.btn.secondary:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
-.btn.blue{background:var(--blue);border-color:var(--blue)}
-.btn.blue:hover{background:var(--ink);border-color:var(--ink)}
-.btn:disabled{opacity:.55;cursor:not-allowed}
-.btn:disabled:hover{background:var(--ink);border-color:var(--ink)}
-nav .btn{padding:10px 14px;min-height:44px}
-.actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.actions a:not(.btn){font-weight:600}
-
-/* Hero */
-.hero{padding:64px 0}
-.hero h1{font-size:clamp(3rem,12vw,6rem);margin-bottom:24px;max-width:20ch}
-.hero .subtitle{font:400 1.25rem/1.5 var(--body);max-width:50rem;margin:0 0 20px;color:var(--ink)}
-.hero p{font-size:1.125rem;max-width:50rem;margin:0 0 32px;color:var(--mute)}
-.hero .actions{margin-top:32px}
-
-/* Logo Strip */
-.logo-strip{background:var(--white);padding:32px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-.logo-strip .wrap{text-align:center}
-.logo-strip p{margin:0 0 16px;font:700 .9rem var(--head);letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
-.logo-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;align-items:center}
-.logo-grid img{height:40px;opacity:.6;filter:grayscale(100%)}
-
-/* Sections */
-section{padding:64px 0}
-section+section{border-top:2px solid var(--ink)}
-.surface{background:var(--white)}
-
-/* Portfolio */
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px;margin:24px 0}
-.portfolio-card{padding:24px;border:3px solid var(--ink);background:var(--white)}
-.sector{display:block;font:700 .8rem/1.5 var(--head);letter-spacing:.05em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.portfolio-card h3{font:800 1.5rem/1.2 var(--head);margin:0 0 8px}
-.portfolio-card p{font-size:.95rem;margin:0 0 16px}
-.text-link{font-weight:600;color:var(--blue);text-underline-offset:5px}
-
-/* Process */
-.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px;margin:32px 0}
-.step{background:var(--white);border:3px solid var(--ink);padding:28px}
-.step-number{font:800 3rem/1 var(--head);color:var(--blue);margin-bottom:16px}
-.step h3{font:800 1.4rem/1.2 var(--head);margin:0 0 12px}
-.step p{margin:0}
-
-/* AI Callout */
-.ai-callout{border:3px solid var(--ink);padding:28px;background:var(--white);margin:32px 0}
-.ai-callout h3{font:800 1.6rem/1.2 var(--head);margin:0 0 12px}
-.ai-callout p{margin:0 0 16px}
-.ai-callout ul{margin:0;padding-left:20px}
-.ai-callout li{margin-bottom:8px}
-
-/* Tools */
-.builder-layout{display:grid;gap:28px;align-items:start}
-.builder-form{max-width:none}
-.result-card{border:3px solid var(--blue);padding:28px;background:var(--white)}
-.result-card h3{font:800 1.9rem/1.1 var(--head);margin:0 0 18px}
-.result-card dl{margin:0 0 22px}
-.result-card dt{font:700 .8rem var(--head);text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-top:14px}
-.result-card dd{margin:4px 0 0}
-.result-card .package{background:var(--ink);color:var(--white);padding:18px;margin:20px 0}
-.result-card .package strong{display:block;font:800 1.25rem var(--head);margin-bottom:8px}
-.result-card .package p{margin:0}
-.status{min-height:1.5em;font-size:.95rem;color:var(--mute);margin:12px 0 0}
-.status.success{color:var(--success);font-weight:600}
-.status.error{color:var(--error);font-weight:600}
-details{border-top:1px solid var(--line);padding:16px 0}
-summary{font:700 1rem var(--head);cursor:pointer}
-details p,details ul{font-size:.95rem}
-
-form{display:grid;gap:16px;max-width:36rem}
-label{font:700 .95rem/1.5 var(--head);display:grid;gap:6px}
-input,select,textarea{font:1rem/1.5 var(--body);padding:12px;border:2px solid var(--ink);background:var(--white);color:var(--ink);border-radius:0;width:100%;min-width:0}
-input:focus,select:focus,textarea:focus{border-color:var(--blue)}
-textarea{min-height:140px;resize:vertical}
-fieldset{margin:0;padding:0;border:0;min-width:0}
-legend{font:800 1.1rem var(--head);margin-bottom:12px}
-.check-row{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line);background:var(--white);font:600 .98rem/1.5 var(--head)}
-.check-row input{width:20px;height:20px;flex:0 0 20px;margin:2px 0 0;accent-color:var(--blue)}
-.check-row small{display:block;font:400 .9rem/1.5 var(--body);color:var(--mute);margin-top:4px}
-.check-list{display:grid;gap:10px}
-.form-grid{display:grid;gap:16px}
-
-.score{font:800 clamp(3rem,8vw,4.5rem)/1 var(--head);margin:0 0 12px}
-.score small{font-size:1.2rem;color:var(--mute)}
-.progress{height:12px;background:var(--concrete);margin:18px 0 24px;overflow:hidden}
-.progress span{display:block;height:100%;background:var(--blue);width:0;transition:width .3s}
-.priorities{padding-left:22px}
-.priorities li{padding:8px 0}
-.priorities strong{font-family:var(--head)}
-
-/* Founder */
-.founder{background:var(--ink);color:var(--white)}
-.founder h2{font-size:clamp(3rem,11vw,6rem);margin-bottom:18px}
-.founder p{max-width:36rem;margin:0 0 18px}
-.founder a{color:var(--white)}
-.founder .eyebrow{color:#80c8ef}
-.founder-layout{display:grid;gap:32px;align-items:center}
-.founder-note{border-left:5px solid var(--blue);padding-left:24px}
-.founder-note p{margin:0 0 18px}
-.founder .btn{background:var(--white);color:var(--ink);border-color:var(--white)}
-.founder .btn:hover{background:var(--blue);color:var(--white);border-color:var(--blue)}
-
-.headshot{width:200px;height:200px;border-radius:50%;border:4px solid var(--blue);object-fit:cover;margin-bottom:24px}
-
-/* Contact */
-.start-layout{display:grid;gap:36px;align-items:start}
-#start h2{font-size:clamp(3rem,10vw,5.2rem);margin-bottom:12px}
-.contact-note{padding:24px;border-left:5px solid var(--blue);background:var(--white)}
-.contact-note h3{font:800 1.3rem var(--head);margin:0 0 12px}
-.contact-note p{margin:0 0 16px}
-.contact-note a{overflow-wrap:anywhere}
-
-footer{padding:40px 0 56px;border-top:2px solid var(--ink)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:24px 32px;justify-content:space-between}
-footer p{margin:0}
-
-@media(min-width:700px){
-  .form-grid{grid-template-columns:1fr 1fr}
-  .founder-layout{grid-template-columns:1.3fr 1fr}
-}
-@media(min-width:900px){
-  .builder-layout{grid-template-columns:1.1fr 1fr;gap:40px}
-  .start-layout{grid-template-columns:1.3fr .8fr;gap:48px}
-}
-@media(max-width:480px){
-  nav{gap:12px}
-  section{padding:48px 0}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{transition:none!important;animation:none!important}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas Movement International | $1,000 Websites for Small Business</title>
+  <meta name="description" content="Texas Movement International builds polished websites for small businesses. $1,000 one-time. Seven-day turnaround. Media, HERO, and Social initiatives.">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
-<a class="skip-link" href="#top">Skip to main content</a>
-
-<header>
-  <div class="wrap bar">
-    <a class="mark" href="#top">Texas Movement</a>
-    <nav aria-label="Primary">
-      <a href="#proof">Our Work</a>
-      <a href="#process">How We Work</a>
-      <a href="#ai">AI Stance</a>
-      <a href="#tools">Free Tools</a>
-      <a href="#founder">About</a>
-      <a class="btn" href="#start">Start a Project</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Texas Movement International</p>
-      <h1 class="display">Where Culture<br>Meets Competence.</h1>
-      <p class="subtitle">Websites, consulting, and AI workflows for independent professionals in the age of artificial intelligence.</p>
-      <p>Every week a new AI tool promises to replace your website, your content, or your judgment. Most of them are noise. We build the signal — durable digital infrastructure you actually own, paired with workflows that put AI to work without turning your practice into a faceless operation.</p>
-      <div class="actions">
-        <a class="btn" href="#start">Start Your Project</a>
-        <a href="#tools">Try Our Free Tools</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGO STRIP -->
-  <div class="logo-strip">
-    <div class="wrap">
-      <p>Trusted by independent professionals and growing ventures</p>
-      <div class="logo-grid">
-        <span style="font:700 1.2rem var(--head);color:var(--mute)">Sankofa Law Group</span>
-        <span style="font:700 1.2rem var(--head);color:var(--mute)">Diamond K Beauty</span>
-        <span style="font:700 1.2rem var(--head);color:var(--mute)">+ more</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROOF -->
-  <section id="proof" class="surface">
-    <div class="wrap">
-      <p class="eyebrow">Results that matter</p>
-      <h2 class="display section-title">Websites that work.</h2>
-      <p class="section-intro">We don't build pretty templates or AI-generated landing pages. We build websites that generate inquiries, establish credibility, and survive the next platform shift — with you in full control.</p>
-
-      <h3 style="font:800 1.8rem var(--head);margin:24px 0 16px">Selected Deployments</h3>
-      <div class="portfolio-grid">
-        <article class="portfolio-card">
-          <span class="sector">Legal Infrastructure</span>
-          <h3>Sankofa Law Group</h3>
-          <p>Enterprise-grade digital architecture, secure client-routing, and authoritative brand positioning for a specialized legal practice.</p>
-          <a href="https://sankofalawgroup.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
-        </article>
-        <article class="portfolio-card">
-          <span class="sector">Commerce Systems</span>
-          <h3>Diamond K Beauty</h3>
-          <p>High-conversion storefront infrastructure, product taxonomy, and digital brand systems for an independent cosmetics label.</p>
-          <a href="https://diamondkbeauty.com" target="_blank" rel="noopener noreferrer" class="text-link">View deployment →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI STANCE -->
-  <section id="ai">
-    <div class="wrap">
-      <p class="eyebrow">Our AI stance</p>
-      <h2 class="display section-title">AI is a tool.<br>Judgment is yours.</h2>
-      <p class="section-intro">The age of AI has flooded the market with cheap websites, generic content, and "set-and-forget" automations that break the moment a platform updates. We use AI deliberately — as leverage, not as a replacement for your voice, your practice, or your clients' trust.</p>
-
-      <div class="ai-callout">
-        <h3>How we actually use AI</h3>
-        <ul>
-          <li><strong>Intake and follow-up automation.</strong> Your leads route to the right place, and no inquiry falls through the cracks.</li>
-          <li><strong>Content drafting with human review.</strong> AI writes the first pass. You or I edit it until it sounds like you — because it has to.</li>
-          <li><strong>Systems documentation.</strong> We use AI to accelerate the handover, so your team owns the system from day one.</li>
-          <li><strong>Never as a substitute for your judgment.</strong> No AI chatbot poses as you. No generated content ships without your approval. Your credibility is not something we automate.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process" class="surface">
-    <div class="wrap">
-      <p class="eyebrow">Our three-phase process</p>
-      <h2 class="display section-title">Diagnose. Build. Hand over.</h2>
-      <p class="section-intro">Three phases. No mystery. No lock-in. You know what you're paying for, and you own everything at the end.</p>
-
-      <div class="process-steps">
-        <div class="step">
-          <div class="step-number">01</div>
-          <h3>Diagnose</h3>
-          <p>We audit your current situation — your goals, your existing site (if any), your workflows, your bottlenecks. We identify what's broken, what AI can help with, and what must stay human.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">02</div>
-          <h3>Build</h3>
-          <p>We design and develop your website with a focus on clarity, credibility, and conversion. Every decision is documented. Every AI integration is explained, not hidden.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">03</div>
-          <h3>Hand Over</h3>
-          <p>We transfer everything to you — documentation, credentials, training. You own the site, the automations, and the content completely. No ongoing fees unless you want them.</p>
-        </div>
-      </div>
-
-      <div class="actions" style="margin-top:48px">
-        <a class="btn" href="#start">Start Your Project</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDER -->
-  <section id="founder" class="founder">
-    <div class="wrap founder-layout">
-      <div>
-        <p class="eyebrow">Meet the founder</p>
-        <h2 class="display">Alexander Mathai</h2>
-        <p>I'm an engineer by training with a background in civil/structural engineering and systems design. I've spent a decade watching small business owners get burned — first by agencies that create dependency, and now by AI tools that promise the moon and deliver template sites.</p>
-        <p>Texas Movement exists to fix both problems. Every website I build is designed to be owned, maintained, and controlled by you. Every AI workflow I set up is designed to make you more effective, not to replace your judgment.</p>
-        <p><a class="link" href="https://alexandermathai.com">Read more about my work and thinking</a></p>
-        <a class="btn" href="#start">Work With Me</a>
-      </div>
-      <div class="founder-note">
-        <p><strong>My promise:</strong> I'll diagnose your situation honestly, build what you actually need (not what's trendy), and hand it over so you own it completely.</p>
-        <p><strong>My stance on AI:</strong> I use it every day. I also know its limits. I will never deploy something you can't explain to a client.</p>
-        <p><strong>My approach:</strong> I work with a small number of clients at a time so I can give each project the attention it deserves. If we're not a good fit, I'll tell you.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TOOLS -->
-  <section id="tools" class="surface">
-    <div class="wrap">
-      <p class="eyebrow">Free tools to help you think clearly</p>
-      <h2 class="display section-title">Try before you buy.</h2>
-      <p class="section-intro">Use these tools to clarify what you need before you reach out. No email required. No strings attached.</p>
-
-      <!-- PROJECT BUILDER -->
-      <div id="project-builder">
-        <h3 style="font:800 1.8rem var(--head);margin:32px 0 16px">Project Builder</h3>
-        <p style="max-width:44rem;margin-bottom:24px">Answer a few questions to generate a project brief. You can download it, copy it, or attach it to your inquiry.</p>
-
-        <div class="builder-layout">
-          <form id="builder-form" class="builder-form">
-            <div class="form-grid">
-              <label for="business-type">Business type
-                <select id="business-type">
-                  <option>Local service business</option>
-                  <option>Independent professional or consultant</option>
-                  <option>Creator or media brand</option>
-                  <option>Shop or product brand</option>
-                  <option>Organization or growing venture</option>
-                </select>
-              </label>
-              <label for="project-goal">Primary goal
-                <select id="project-goal">
-                  <option>Generate inquiries</option>
-                  <option>Showcase work</option>
-                  <option>Sell products</option>
-                  <option>Publish content</option>
-                  <option>Connect an existing ecosystem</option>
-                </select>
-              </label>
-              <label for="project-scope">Website scope
-                <select id="project-scope">
-                  <option value="landing">Focused landing page</option>
-                  <option value="business">Multi-page business website</option>
-                  <option value="larger">Store, publishing system, or larger project</option>
-                </select>
-              </label>
-              <label for="project-timing">Desired timing
-                <select id="project-timing">
-                  <option>Flexible / exploring options</option>
-                  <option>Within one month, if feasible</option>
-                  <option>Within one to three months</option>
-                  <option>Specific deadline — discuss in inquiry</option>
-                </select>
-              </label>
-            </div>
-
-            <fieldset>
-              <legend>Additional needs</legend>
-              <div class="check-list">
-                <label class="check-row"><input type="checkbox" name="extra" value="Copywriting"><span>Copywriting<small>Help turn your offer into clear website language.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="extra" value="Booking link"><span>Booking link<small>Connect visitors to an existing scheduling service.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="extra" value="Store integration"><span>Store integration<small>Discuss products, checkout, and your commerce platform.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="extra" value="AI-assisted workflow"><span>AI-assisted workflow<small>Intake, follow-up, or content automation with human oversight.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="extra" value="Publishing or media library"><span>Publishing or media library<small>Organize articles, videos, or a growing content archive.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="extra" value="Ongoing support"><span>Ongoing support<small>Discuss future updates and maintenance separately.</small></span></label>
-              </div>
-            </fieldset>
-
-            <label for="builder-notes">Anything else? <span class="small">Optional</span>
-              <textarea id="builder-notes" maxlength="2000" placeholder="Your current website, audience, example sites, or constraints."></textarea>
-            </label>
-            <button type="submit" class="btn">Review my project summary</button>
-            <p class="small">This tool organizes your selections. It does not issue a binding quote or reserve a delivery date.</p>
-          </form>
-
-          <aside class="result-card" aria-label="Your project summary">
-            <p class="eyebrow">Your working brief</p>
-            <h3>Your next website, outlined.</h3>
-            <dl>
-              <dt>Business</dt><dd id="summary-business"></dd>
-              <dt>Main goal</dt><dd id="summary-goal"></dd>
-              <dt>Scope</dt><dd id="summary-scope"></dd>
-              <dt>Additional needs</dt><dd id="summary-extras"></dd>
-              <dt>Desired timing</dt><dd id="summary-timing"></dd>
-            </dl>
-            <div class="package">
-              <strong id="package-title"></strong>
-              <p id="package-description"></p>
-            </div>
-            <p id="summary-recommendation"></p>
-            <div class="actions">
-              <button class="btn blue" id="use-brief" type="button">Use this brief</button>
-              <button class="btn secondary" id="copy-brief" type="button">Copy</button>
-              <button class="btn secondary" id="download-brief" type="button">Download</button>
-            </div>
-            <p class="status" id="builder-status" role="status"></p>
-          </aside>
-        </div>
-      </div>
-
-      <!-- READINESS CHECKLIST -->
-      <div id="readiness" style="margin-top:64px">
-        <h3 style="font:800 1.8rem var(--head);margin:32px 0 16px">Launch Readiness Checklist</h3>
-        <p style="max-width:44rem;margin-bottom:24px">Check the statements you can honestly confirm. See your progress and your next three priorities immediately.</p>
-
-        <div class="builder-layout">
-          <form id="readiness-form" class="builder-form">
-            <fieldset>
-              <legend>Your website launch checklist</legend>
-              <div class="check-list">
-                <label class="check-row"><input type="checkbox" name="ready" value="offer"><span>My main offer is clear.<small>A visitor can tell what I provide, who it is for, and what to do next.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="contact"><span>Someone can contact me easily.<small>My inquiry link, email, or booking action is visible and tested.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="mobile"><span>I have checked the site on a phone.<small>Text, navigation, buttons, and forms are usable on a small screen.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="proof"><span>I show credible examples of my work.<small>Projects, demonstrations, or testimonials are accurate and clearly labeled.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="ownership"><span>I control my essential accounts.<small>I have access to my domain, website, hosting, and recovery details.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="scope"><span>My pricing or next steps are understandable.<small>Visitors know what happens after they inquire and what must be discussed.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="content"><span>My public information is current.<small>Links, services, contact details, and availability reflect what is actually offered.</small></span></label>
-                <label class="check-row"><input type="checkbox" name="ready" value="handover"><span>I know how to keep the site running.<small>Updates, backups where applicable, renewals, and ownership responsibilities are documented.</small></span></label>
-              </div>
-            </fieldset>
-            <div class="actions">
-              <button class="btn" type="submit">Show my priorities</button>
-              <button class="btn secondary" type="reset">Reset checklist</button>
-            </div>
-            <p class="small">Your answers stay in this page unless you choose to include them in an email or project inquiry.</p>
-          </form>
-
-          <aside class="result-card" aria-label="Launch readiness results">
-            <p class="eyebrow">Your self-assessment</p>
-            <p class="score"><span id="readiness-count">0</span><small> / 8 confirmed</small></p>
-            <div class="progress" role="progressbar" aria-label="Confirmed checklist items" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="readiness-progress"><span id="readiness-fill"></span></div>
-            <h3 id="readiness-title">Start with the fundamentals.</h3>
-            <p id="readiness-description">Mark the items you have already handled. The remaining items become your next steps.</p>
-            <h4 style="font-family:var(--head);margin-bottom:8px">Your next priorities</h4>
-            <ol class="priorities" id="readiness-priorities"></ol>
-            <div class="actions">
-              <button class="btn blue" type="button" id="use-readiness">Discuss these priorities</button>
-              <button class="btn secondary" type="button" id="download-readiness">Download results</button>
-              <button class="btn secondary" type="button" id="email-readiness">Email myself</button>
-            </div>
-            <p class="status" id="readiness-status" role="status"></p>
-          </aside>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="start">
-    <div class="wrap">
-      <h2 class="display">Start a project</h2>
-      <p class="section-intro">Tell me what you need. I read every request personally and reply with next steps.</p>
-
-      <div class="start-layout">
-        <form id="f" action="https://formspree.io/f/mpqewaod" method="POST" novalidate>
-          <label for="svc">Service
-            <select id="svc" name="service" required>
-              <option>Website building</option>
-              <option>Consulting / strategy</option>
-              <option>AI workflow design</option>
-              <option>Not sure yet</option>
-            </select>
-          </label>
-          <div class="form-grid">
-            <label for="nm">Your name
-              <input id="nm" name="name" type="text" required autocomplete="name" maxlength="120">
-            </label>
-            <label for="em">Email
-              <input id="em" name="email" type="email" required autocomplete="email" maxlength="254">
-            </label>
-          </div>
-          <label for="msg">What are you trying to fix or make?
-            <textarea id="msg" name="message" required maxlength="7000" placeholder="Describe your goal, current situation, and any important constraints."></textarea>
-          </label>
-          <label for="attached">Attached tool summaries <span class="small">Optional; review or edit before sending</span>
-            <textarea id="attached" name="attached_summaries" maxlength="10000" placeholder="Project builder and checklist results appear here when you choose to attach them."></textarea>
-          </label>
-          <!-- Honeypot for spam protection -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="_subject" value="New project inquiry from texasmovement.com">
-          <div class="actions">
-            <button class="btn" type="submit" id="submit-btn">Send project details</button>
-            <button class="btn secondary" type="button" id="copy-inquiry">Copy inquiry</button>
-          </div>
-          <p class="small">Your message is delivered directly to my inbox. I respond personally within one business day.</p>
-          <p class="status" id="contact-status" role="status" aria-live="polite"></p>
-        </form>
-
-        <aside class="contact-note">
-          <h3>A useful inquiry starts here.</h3>
-          <ul style="padding-left:20px;margin-top:0">
-            <li>What are you building or trying to fix?</li>
-            <li>Who is it for?</li>
-            <li>What already exists?</li>
-            <li>What are your budget and timing constraints?</li>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="brand-mark">Texas Movement</a>
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="consulting.html">Consulting</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="hero.html">HERO</a></li>
+            <li><a href="social.html">Social</a></li>
+            <li><a href="consulting.html#inquiry" class="btn btn-primary">Get a $1,000 Website</a></li>
           </ul>
-          <p>Prefer email? Send your inquiry directly.</p>
-          <p><a href="mailto:lexmathai@gmail.com">lexmathai@gmail.com</a><br><a href="mailto:alexander@texasmovement.com">alexander@texasmovement.com</a></p>
-          <p><a href="tel:+18722102505">+1 (872) 210-2505</a></p>
-          <p class="small">Only include information needed to discuss the project. Do not send passwords, private client records, or sensitive account credentials.</p>
-        </aside>
+        </nav>
       </div>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer>
-  <div class="wrap">
-    <p>Texas Movement International LLC<br><span class="small">Chicago, Illinois</span></p>
-    <p><a href="https://alexandermathai.com">Founder site</a><br><a href="https://www.linkedin.com/in/alexandermathai">LinkedIn</a></p>
-    <p><a href="#tools">Free tools</a><br><a href="#top">Back to top ↑</a></p>
-  </div>
-</footer>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Texas Movement International</p>
+        <h1>A polished website for your business.<br>$1,000. Built in 7 days.</h1>
+        <p class="hero-support">Texas Movement Consulting builds clean, mobile-friendly websites for small businesses using straightforward static HTML—without an unnecessary framework or complicated editing system.</p>
+        <div class="hero-actions">
+          <a href="consulting.html#inquiry" class="btn btn-primary btn-large">Start Your Website</a>
+          <a href="#businesses" class="btn btn-secondary btn-large">Explore Texas Movement</a>
+        </div>
+        <p class="hero-note"><strong>Seven-day delivery</strong> begins after your project scope is confirmed, your deposit is paid, and all required content and access are received.</p>
+      </div>
+    </section>
 
-<script>
-(function(){
-  "use strict";
+    <!-- WHY THIS OFFER -->
+    <section class="section">
+      <div class="container">
+        <h2>Why this offer</h2>
+        <div class="features-grid">
+          <div class="feature">
+            <h3>Clear one-time price</h3>
+            <p>$1,000 for a focused website build. No hidden fees for the build itself.</p>
+          </div>
+          <div class="feature">
+            <h3>Seven-day delivery</h3>
+            <p>Once scope is confirmed and materials received, your site is built in seven calendar days.</p>
+          </div>
+          <div class="feature">
+            <h3>Thoughtful design</h3>
+            <p>Clean layouts designed for your business, with mobile responsiveness built in.</p>
+          </div>
+          <div class="feature">
+            <h3>Straightforward files</h3>
+            <p>Static HTML and CSS. No complex frameworks. No CMS plugin stack to maintain.</p>
+          </div>
+          <div class="feature">
+            <h3>Clear scope</h3>
+            <p>You know exactly what's included before work begins. No scope creep.</p>
+          </div>
+          <div class="feature">
+            <h3>Proper handover</h3>
+            <p>You receive all website files and documentation. You own your site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  var $ = function(id){return document.getElementById(id);};
-  var all = function(selector){return Array.prototype.slice.call(document.querySelectorAll(selector));};
-  var attachments = {brief:"",readiness:""};
+    <!-- BUSINESSES -->
+    <section id="businesses" class="section section-alt">
+      <div class="container">
+        <h2>The businesses</h2>
+        <p class="section-intro">Texas Movement International is the parent organization for distinct businesses and initiatives.</p>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Consulting</h3>
+            <p>$1,000 small-business websites, built in seven days once the project is ready.</p>
+            <a href="consulting.html" class="card-link">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Media</h3>
+            <p>Original conversations, stories, and publishing across sport, business, and culture.</p>
+            <a href="media.html" class="card-link">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>HERO</h3>
+            <p>The footwear brand within Texas Movement International.</p>
+            <a href="hero.html" class="card-link">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Social</h3>
+            <p>An emerging Chicago initiative for conversations, connections, and future gatherings.</p>
+            <a href="social.html" class="card-link">Learn more</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  function moveTo(id,focusId){
-    $(id).scrollIntoView({behavior:"smooth",block:"start"});
-    if(focusId){
-      try{$(focusId).focus({preventScroll:true});}
-      catch(e){$(focusId).focus();}
-    }
-  }
+    <!-- ABOUT PARENT -->
+    <section class="section">
+      <div class="container container-narrow">
+        <h2>About Texas Movement International</h2>
+        <p>Texas Movement International LLC is based in Chicago and led by founder Alexander Mathai. The organization builds businesses and initiatives across consulting, media, product, and community.</p>
+        <p>The clearest current commercial offer is the $1,000 website build through Texas Movement Consulting. Other initiatives are in development or operate on different timelines.</p>
+      </div>
+    </section>
 
-  function downloadText(filename,text){
-    var blob = new Blob([text],{type:"text/plain;charset=utf-8"});
-    var url = URL.createObjectURL(blob);
-    var link = document.createElement("a");
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    window.setTimeout(function(){URL.revokeObjectURL(url);},1000);
-  }
+    <!-- FINAL CTA -->
+    <section class="section section-cta">
+      <div class="container">
+        <h2>Ready to build your website?</h2>
+        <p>Get a professional website for your small business. $1,000. Seven-day turnaround.</p>
+        <a href="consulting.html#inquiry" class="btn btn-primary btn-large">Start Your Website</a>
+      </div>
+    </section>
+  </main>
 
-  async function copyText(text,statusId){
-    try{
-      if(!navigator.clipboard || !window.isSecureContext){throw new Error("Clipboard unavailable");}
-      await navigator.clipboard.writeText(text);
-      $(statusId).textContent = "Copied. Paste wherever you need it.";
-      $(statusId).className = "status success";
-    }catch(e){
-      var area = document.createElement("textarea");
-      area.value = text;
-      area.setAttribute("aria-label","Text to copy");
-      area.style.position = "fixed";
-      area.style.left = "-9999px";
-      document.body.appendChild(area);
-      area.select();
-      var copied = false;
-      try{copied = document.execCommand("copy");}catch(error){}
-      area.remove();
-      $(statusId).textContent = copied ?
-        "Copied. Paste wherever you need it." :
-        "Automatic copying is unavailable. Use Download, or select the text in your inquiry.";
-      $(statusId).className = copied ? "status success" : "status error";
-    }
-  }
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <p class="footer-company">Texas Movement International LLC</p>
+          <p class="footer-location">Chicago, Illinois</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-section">
+            <h4>Businesses</h4>
+            <ul>
+              <li><a href="consulting.html">Consulting</a></li>
+              <li><a href="media.html">Media</a></li>
+              <li><a href="hero.html">HERO</a></li>
+              <li><a href="social.html">Social</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:contact@texasmovement.com">contact@texasmovement.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Texas Movement International LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-  function attachSummary(kind,text,service){
-    var oldCombined = [attachments.brief,attachments.readiness].filter(Boolean).join("\n\n--------------------\n\n");
-    var field = $("attached");
-    attachments[kind] = text;
-    var newCombined = [attachments.brief,attachments.readiness].filter(Boolean).join("\n\n--------------------\n\n");
-    if(!field.value.trim() || field.value === oldCombined){
-      field.value = newCombined;
-    }else{
-      field.value = field.value + "\n\n--------------------\n\n" + text;
-    }
-    $("svc").value = service;
-    $("contact-status").textContent = "Your summary is attached below. Add your name, email, and project message, then press Send.";
-    $("contact-status").className = "status";
-    moveTo("start","nm");
-  }
-
-  var scopeNames = {
-    landing:"Focused landing page",
-    business:"Multi-page business website",
-    larger:"Store, publishing system, or larger project"
-  };
-
-  function builderState(){
-    return {
-      business:$("business-type").value,
-      goal:$("project-goal").value,
-      scope:$("project-scope").value,
-      timing:$("project-timing").value,
-      extras:all('input[name="extra"]:checked').map(function(input){return input.value;}),
-      notes:$("builder-notes").value.trim()
-    };
-  }
-
-  function packageFor(state){
-    var simple = state.scope==="landing" &&
-      state.extras.length===0 &&
-      state.goal!=="Sell products" &&
-      state.goal!=="Publish content" &&
-      state.goal!=="Connect an existing ecosystem";
-    if(simple){
-      return {
-        title:"Focused Landing Page",
-        description:"A single-page site with clear messaging and conversion focus. Ideal for specific campaigns or simple business presence.",
-        recommendation:"Next step: share your business information, content, and contact requirements so we can discuss scope and timeline."
-      };
-    }
-    if(state.goal==="Sell products" || state.extras.indexOf("Store integration")!==-1){
-      return {
-        title:"E-commerce or Product Site",
-        description:"Custom quote required. Product structure, platform, checkout, integrations, and ongoing costs need individual review.",
-        recommendation:"Next step: share your product count, existing store platform, payment needs, and launch constraints."
-      };
-    }
-    if(state.scope==="larger" || state.goal==="Connect an existing ecosystem" || state.extras.indexOf("AI-assisted workflow")!==-1){
-      return {
-        title:"Custom Digital System",
-        description:"Custom quote required. The website, AI workflows, integrations, and handover should be scoped together.",
-        recommendation:"Next step: list your current tools, existing sites, and the process you want to connect or automate."
-      };
-    }
-    return {
-      title:"Multi-Page Business Website",
-      description:"Custom quote required. Page count, content, publishing needs, selected extras, and support are reviewed before pricing.",
-      recommendation:"Next step: share your existing website, required pages, available content, and examples of the direction you want."
-    };
-  }
-
-  function updateBuilder(){
-    var state = builderState();
-    var pack = packageFor(state);
-    $("summary-business").textContent = state.business;
-    $("summary-goal").textContent = state.goal;
-    $("summary-scope").textContent = scopeNames[state.scope];
-    $("summary-extras").textContent = state.extras.length?state.extras.join(", "):"None selected / client-supplied content";
-    $("summary-timing").textContent = state.timing;
-    $("package-title").textContent = pack.title;
-    $("package-description").textContent = pack.description;
-    $("summary-recommendation").textContent = pack.recommendation;
-  }
-
-  function briefText(){
-    var state = builderState();
-    var pack = packageFor(state);
-    return [
-      "TEXAS MOVEMENT — WEBSITE PROJECT BRIEF",
-      "Business type: "+state.business,
-      "Primary goal: "+state.goal,
-      "Scope: "+scopeNames[state.scope],
-      "Additional needs: "+(state.extras.length?state.extras.join(", "):"None selected / client-supplied content"),
-      "Desired timing: "+state.timing,
-      "Package guidance: "+pack.title,
-      pack.description,
-      "Next step: "+pack.recommendation,
-      state.notes?"Additional notes: "+state.notes:"",
-      "Planning summary only. Not a binding quote or confirmed delivery date."
-    ].filter(Boolean).join("\n");
-  }
-
-  $("builder-form").addEventListener("input",updateBuilder);
-  $("builder-form").addEventListener("change",updateBuilder);
-  $("builder-form").addEventListener("submit",function(event){
-    event.preventDefault();
-    updateBuilder();
-    $("builder-status").textContent = "Your summary is ready. Copy it, download it, or attach it to your inquiry.";
-    $("builder-status").className = "status success";
-    moveTo("project-builder","use-brief");
-  });
-  $("use-brief").addEventListener("click",function(){attachSummary("brief",briefText(),"Website building");});
-  $("copy-brief").addEventListener("click",function(){copyText(briefText(),"builder-status");});
-  $("download-brief").addEventListener("click",function(){
-    downloadText("texas-movement-project-brief.txt",briefText());
-    $("builder-status").textContent = "Your project brief download is ready.";
-    $("builder-status").className = "status success";
-  });
-  updateBuilder();
-
-  var readinessItems = [
-    {id:"offer",title:"Clarify the main offer.",action:"Write a sentence explaining what you provide, who it is for, and the next action."},
-    {id:"contact",title:"Make contact easy and test it.",action:"Add a visible inquiry or booking action. Complete a test from your phone and confirm it reaches you."},
-    {id:"mobile",title:"Check the mobile experience.",action:"Review navigation, text, buttons, forms, and page layout on a real phone."},
-    {id:"proof",title:"Publish credible proof of work.",action:"Add accurate project examples or clearly labeled concepts. Do not invent testimonials or results."},
-    {id:"ownership",title:"Confirm account ownership.",action:"Check access to your domain, hosting, website repository, and account recovery information."},
-    {id:"scope",title:"Explain pricing or the next step.",action:"State what visitors can request, how the inquiry works, and which details need a separate quote."},
-    {id:"content",title:"Update public information.",action:"Review services, links, contact details, availability, and any development-status labels."},
-    {id:"handover",title:"Document ongoing responsibilities.",action:"Write down how updates, renewals, backups where applicable, and future handover will be managed."}
-  ];
-
-  function readinessState(){
-    var checked = all('input[name="ready"]:checked').map(function(input){return input.value;});
-    return {
-      checked:checked,
-      missing:readinessItems.filter(function(item){return checked.indexOf(item.id)===-1;})
-    };
-  }
-
-  function updateReadiness(){
-    var state = readinessState();
-    var count = state.checked.length;
-    $("readiness-count").textContent = count;
-    $("readiness-fill").style.width = (count/8*100)+"%";
-    $("readiness-progress").setAttribute("aria-valuenow",String(count));
-    $("readiness-progress").setAttribute("aria-valuetext",count+" of 8 checklist items confirmed");
-    $("readiness-title").textContent = count===8 ?
-      "All checklist items confirmed." :
-      count>=6?"Close the remaining gaps.":
-      count>=3?"You have a foundation to build on.":"Start with the fundamentals.";
-    $("readiness-description").textContent = count===8 ?
-      "Your self-assessment is complete. Do a final real-world check of links, contact actions, and mobile layouts." :
-      "Your next priorities are the first unconfirmed items below.";
-    $("readiness-priorities").replaceChildren();
-    var priorities = state.missing.slice(0,3);
-    if(!priorities.length){
-      var finalItem = document.createElement("li");
-      finalItem.textContent = "Complete a final walkthrough and ask someone unfamiliar with your business to try the site.";
-      $("readiness-priorities").appendChild(finalItem);
-    }else{
-      priorities.forEach(function(item){
-        var li = document.createElement("li");
-        var strong = document.createElement("strong");
-        strong.textContent = item.title;
-        li.appendChild(strong);
-        li.appendChild(document.createElement("br"));
-        li.appendChild(document.createTextNode(item.action));
-        $("readiness-priorities").appendChild(li);
-      });
-    }
-  }
-
-  function readinessText(){
-    var state = readinessState();
-    var lines = [
-      "TEXAS MOVEMENT — WEBSITE LAUNCH SELF-ASSESSMENT",
-      "Confirmed: "+state.checked.length+" of 8 checklist items",
-      "",
-      "CHECKLIST"
-    ];
-    readinessItems.forEach(function(item){
-      lines.push((state.checked.indexOf(item.id)!==-1?"[CONFIRMED] ":"[NOT CONFIRMED] ")+item.title);
-    });
-    lines.push("","NEXT THREE PRIORITIES");
-    if(state.missing.length){
-      state.missing.slice(0,3).forEach(function(item,index){
-        lines.push((index+1)+". "+item.title+" — "+item.action);
-      });
-    }else{
-      lines.push("All fundamentals confirmed. Do a final real-world walkthrough.");
-    }
-    lines.push("","Planning summary only. Not a technical certification or automated scan.");
-    return lines.join("\n");
-  }
-
-  $("readiness-form").addEventListener("change",updateReadiness);
-  $("readiness-form").addEventListener("submit",function(event){
-    event.preventDefault();
-    updateReadiness();
-    $("readiness-status").textContent = "Your results are ready. Download them, email yourself, or attach them to an inquiry.";
-    $("readiness-status").className = "status success";
-    moveTo("readiness","use-readiness");
-  });
-  $("use-readiness").addEventListener("click",function(){attachSummary("readiness",readinessText(),"Consulting / strategy");});
-  $("download-readiness").addEventListener("click",function(){
-    downloadText("texas-movement-readiness.txt",readinessText());
-    $("readiness-status").textContent = "Your readiness results download is ready.";
-    $("readiness-status").className = "status success";
-  });
-  $("email-readiness").addEventListener("click",function(){
-    location.href="mailto:?subject="+encodeURIComponent("Website launch readiness")+"&body="+encodeURIComponent(readinessText());
-  });
-  updateReadiness();
-
-  /* === FORMSPREE CONTACT FORM === */
-  $("f").addEventListener("submit", async function(event){
-    event.preventDefault();
-    var form = event.target;
-    var submitBtn = $("submit-btn");
-    var statusEl = $("contact-status");
-    var name = $("nm").value.trim();
-    var email = $("em").value.trim();
-    var msg = $("msg").value.trim();
-
-    if(!name || !email || !msg){
-      statusEl.textContent = "Please fill in your name, email, and message before sending.";
-      statusEl.className = "status error";
-      return;
-    }
-
-    var originalLabel = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-    statusEl.textContent = "";
-    statusEl.className = "status";
-
-    try {
-      var response = await fetch(form.action, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          service: $("svc").value,
-          name: name,
-          email: email,
-          message: msg,
-          attached_summaries: $("attached").value,
-          _subject: "New project inquiry from texasmovement.com"
-        })
-      });
-
-      if (response.ok) {
-        statusEl.textContent = "Success! Your message has been delivered. I'll respond within one business day.";
-        statusEl.className = "status success";
-        form.reset();
-        attachments.brief = "";
-        attachments.readiness = "";
-      } else {
-        var data;
-        try { data = await response.json(); } catch(e) { data = null; }
-        var err = (data && data.error) ? data.error : "There was a problem submitting your form. Please try again or email me directly at lexmathai@gmail.com.";
-        statusEl.textContent = err;
-        statusEl.className = "status error";
-      }
-    } catch (error) {
-      statusEl.textContent = "Network error. Please check your connection or email me directly at lexmathai@gmail.com.";
-      statusEl.className = "status error";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalLabel;
-    }
-  });
-
-  $("copy-inquiry").addEventListener("click",function(){
-    var body = "Service: "+$("svc").value+"\nName: "+$("nm").value+"\nEmail: "+$("em").value+"\n\n"+$("msg").value;
-    if($("attached").value.trim()){body += "\n\n--------------------\n\nAttached summaries:\n\n"+$("attached").value;}
-    copyText(body,"contact-status");
-  });
-})();
-</script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
