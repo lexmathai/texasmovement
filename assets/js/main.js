@@ -37,8 +37,8 @@
     });
   }
 
-  // Form handling
-  const inquiryForm = document.getElementById('inquiry-form');
+  // Form handling for Social form only
+  // Consulting form submits directly to Formspree via native HTML form submission
   const socialForm = document.getElementById('social-form');
 
   function handleFormSubmission(form, statusElementId, successMessage) {
@@ -68,14 +68,12 @@
         return;
       }
 
-      // Note: This form does not actually submit anywhere
-      // In production, this would need a form handler service or backend
-      statusElement.textContent = 'Form submission is not configured. Please contact us directly at contact@texasmovement.com';
+      // Social form does not have a configured backend
+      statusElement.textContent = 'Form submission is not configured. Please contact us directly at lexmathai@gmail.com';
       statusElement.className = 'form-status error';
     });
   }
 
-  handleFormSubmission(inquiryForm, 'form-status', 'Thank you for your inquiry. We will respond within two business days.');
   handleFormSubmission(socialForm, 'social-form-status', 'Thank you for your interest. We will reach out when there is something to share.');
 
 })();
